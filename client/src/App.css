@@ -1,0 +1,24 @@
+#nav-bar {
+  height: 4.5em;
+}
+
+#hero-image {
+  height: 35em;
+  text-align: center;
+  text-align: bottom;
+  /* background-image: url("/pictures/hero-image.jpg"); */
+  color: black;
+  background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),
+    /* bottom, image */
+    url("/pictures/hero-image.jpg");
+    color: white;
+}
+
+#hero-image .container {
+  margin-top: 15em;
+}
