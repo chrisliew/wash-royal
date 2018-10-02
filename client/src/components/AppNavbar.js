@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -10,9 +11,12 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem, 
-  Container
+  DropdownItem,
+  Container,
+  Button,
 } from 'reactstrap';
+
+
 
 class AppNavbar extends Component {
   state = {
@@ -33,7 +37,7 @@ class AppNavbar extends Component {
             <NavbarBrand href="/">WashRoyal</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="http://example.com">
+                <NavLink href="/pricing">
                   Pricing
                 </NavLink>
               </NavItem>
@@ -50,8 +54,11 @@ class AppNavbar extends Component {
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink href="http://github.com/chrisliew">
-                    Github  
+                    Github
                   </NavLink>
+                </NavItem>
+                <NavItem>
+                  <Button color="success" size="md">Book A Collection</Button>{' '}
                 </NavItem>
               </Nav>
             </Collapse>
