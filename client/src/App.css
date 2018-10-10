@@ -16,9 +16,10 @@ body {
 
 #nav-bar {
   height: 4.5em;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 
 /* ************************* Hero Image *************************** */
@@ -68,7 +69,7 @@ body {
 .how-it-works .description {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .how-it-works .card {
@@ -77,8 +78,9 @@ body {
   margin-right: 50px;
   margin-left: 50px;
   align-items: center;
-  width: 17em;
+  width: 18em;
   height: 28em;
+  background: none;
 }
 
 .how-it-works img {
@@ -93,8 +95,8 @@ body {
 .how-it-works .long-info {
   margin-top: 1em;
   font-size: 1.2em;
-  width: 17em;
-  text-align: left;
+  /* width: 17em; */
+  /* text-align: left; */
 }
 
 .how-it-works button {
@@ -207,7 +209,6 @@ body {
 }
 
 .faq .container {
-  border: 2px solid purple;
   margin-top: 2em;
   min-height: 40em;
 }
@@ -352,7 +353,6 @@ font-family: 'Open Sans';
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-
 	padding: 55px 50px;
 	margin-top: 80px;
 }
@@ -513,7 +513,373 @@ font-family: 'Open Sans';
 	}
 }
 
-
 @media (max-height:800px){
 	footer { position: static; }
+}
+
+
+
+/* ************************* Choose Service *************************** */
+
+
+.choose-service .container {
+  border: 1px solid black;
+  height: 30em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
+}
+
+.choose-service .container .cards {
+  height: 25em;
+  display: flex;
+}
+
+.choose-service .container .cards .card {
+  border: 2px solid black;
+  height: 100%;
+  width: 17em;
+}
+
+.choose-service .container .cards .card-selected {
+  border: 2px solid black;
+  height: 100%;
+  width: 17em;
+  filter: brightness(50%);
+  background-color: orange;
+}
+
+.choose-service .container .card-selected header {
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.choose-service .container .cards .card:hover {
+  filter: brightness(50%);
+  /* -webkit-transition: filter 1s; */
+}
+
+
+
+
+.choose-service .container .card header {
+  height: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #007bff; */
+  font-size: 2em;
+}
+
+.choose-service .container .price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15em;
+  border-bottom: 1px solid black;
+  /* background-color: white; */
+}
+
+.choose-service .container .price {
+  font-size: 3em;
+}
+
+.choose-service .container .points {
+  font-size: 1.2em;
+  /* background-color: white; */
+}
+
+.choose-service .container .cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* ************************* Order Summary *************************** */
+
+.order-summary {
+  margin-top: 3em;
+  border: 1px solid black;
+  float: right;
+  margin-right: 25em;
+}
+
+.order-summary .fix-this {
+  position: fixed;
+  height: 27em;
+  width: 17em;
+  border: 1px solid black;
+  background-color: darkblue;
+  color: white;
+}
+
+.order-summary .delivery-details {
+  height: 10em;
+  background-color: lightblue;
+  font-size: 1.1em;
+  padding-left: 1em;
+}
+
+.order-summary .delivery-points {
+  height: 10em;
+  background-color: darkcyan;
+  font-size: 1.1em;
+  padding-left: 1em;
+}
+
+.order-summary .price-estimate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+}
+
+
+/* ************************* Collection Time *************************** */
+
+.collection-time {
+}
+
+.collection-time .header {
+  margin-left: 1em;
+}
+
+.collection-time .description {
+  margin-left: 1.5em;
+  font-size: 1.5em;
+}
+
+.collection-time .buttons {
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.collection-time .button {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 5em;
+  width: 5em;
+  background-color: rgba(4, 70, 170, 0.94);
+  color: white;
+  font-size: 1em;
+}
+
+.collection-time .button-selected {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 6em;
+  width: 6em;
+  background-color: orange;
+  font-size: 1em;
+  color: white;
+}
+
+.collection-time .button:hover
+{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.collection-time .button:focus
+{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  background-color: orange;
+}
+
+/* ************************* Return Time *************************** */
+
+.return-time {
+  margin-top: 10em; 
+}
+
+.return-time .header {
+  margin-left: 1em;
+}
+
+.return-time .description {
+  margin-left: 1.5em;
+  font-size: 1.5em;
+}
+
+.return-time .buttons {
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.return-time .button {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 5em;
+  width: 5em;
+  background-color: rgba(4, 70, 170, 0.94);
+  color: white;
+  font-size: 1em;
+}
+
+.return-time .selected {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 6em;
+  width: 6em;
+}
+
+.return-time .button:hover
+{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.return-time .button-selected {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 6em;
+  width: 6em;
+  background-color: orange;
+  font-size: 1em;
+  color: white;
+}
+
+.return-time .button:focus
+{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  background-color: orange;
+}
+
+.return-time .button:disabled
+{
+  background-color: rgb(46, 43, 43);
+  color: black
+}
+
+
+/* ************************* Collect-Return Time *************************** */
+
+.collect-return {
+  border: 5px solid orange;
+  height: 30em;
+  width: 65em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  /* margin-top: 3em; */
+}
+
+/* ************************* Collect Appointments *************************** */
+
+.collect {
+  display: flex;
+  justify-content: space-around;
+}
+
+.collect-appointment-available {
+  display: flex;
+  flex-wrap: wrap;
+  width: 23em;
+  font-size: 1.2em;
+  max-height: 40em;
+  border: 1px solid black;
+}
+
+.collect-appointment-available .appointment-time {
+  border: 1px solid black;
+  margin: 0.5em;
+  height: 80px;
+  width: 80px;
+}
+
+/* ************************* Return Appointments *************************** */
+
+.return {
+  display: flex;
+  justify-content: space-around;
+}
+
+.return-appointment-available {
+  display: flex;
+  flex-wrap: wrap;
+  width: 23em;
+  font-size: 1.2em;
+  max-height: 40em;
+  border: 1px solid black;
+}
+
+.return-appointment-available .return-time {
+  border: 1px solid black;
+  margin: 0.5em;
+  height: 80px;
+  width: 80px;
+}
+
+/* ************************* Laundry Info *************************** */
+
+.laundry-info {
+  border: 1px solid black;
+  height: 30em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
+}
+
+/* ************************* Contact Info *************************** */
+
+.contact-info {
+  border: 1px solid black;
+  height: 40em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
+}
+
+/* ************************* Pickup Location *************************** */
+
+.pickup-location {
+  border: 1px solid black;
+  height: 40em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
+}
+
+/* ************************* Pickup Location *************************** */
+
+.payment {
+  border: 1px solid black;
+  height: 30em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
+}
+
+/* ************************* Request Collection *************************** */
+
+.request-collection {
+  border: 1px solid black;
+  height: 15em;
+  width: 60em;
+  float: left;
+  margin-left: 6em;
+  background-color: white;
+  margin-top: 3em;
 }

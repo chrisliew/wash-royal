@@ -1,5 +1,6 @@
 import React from 'react';
-import { Jumbotron, Container, Button } from 'reactstrap';
+import { Jumbotron, Container, Button, NavLink } from 'reactstrap';
+
 
 const HeroImage = () => {
   return (
@@ -9,7 +10,8 @@ const HeroImage = () => {
           <h1>Laundry Done Quick and Easy In Da Nang</h1>
           <h2>Free Pickup and Delivery within the city</h2>
           <p>Prices starting at 20,000 per kg</p>
-          <Button color="success" size="lg">Book A Collection</Button>{' '}
+          <NavLink href="/order/new/:id"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+          {/* <Button color="success" size="lg">Book A Collection</Button>{' '} */}
         </Container>
       </Jumbotron>
     </div>

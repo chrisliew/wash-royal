@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+// import { BrowserRouter as Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -8,10 +8,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Container,
   Button,
 } from 'reactstrap';
@@ -58,7 +54,7 @@ class AppNavbar extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <Button color="success" size="md">Book A Collection</Button>{' '}
+                  <NavLink href="/order/new/:id"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
