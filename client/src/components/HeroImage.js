@@ -1,7 +1,6 @@
 import React from 'react';
 import { Jumbotron, Container, Button, NavLink } from 'reactstrap';
 
-
 const HeroImage = () => {
   return (
     <div>

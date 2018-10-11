@@ -3,13 +3,29 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const OrderSchema = new Schema({
-  name: {
+  service: {
     type: String,
     required: true
   },
-  date: {
+  dateOrder: {
     type: Date,
     default: Date.now
+  },
+  time: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  slots: {
+    type: Number,
+    required: true
+  },
+  dateService: {
+    type: String,
+    required: true
   }
 });
 

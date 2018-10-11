@@ -10,16 +10,20 @@ const Order = require('../../models/Order');
 // / represents api/orders since it is in router file..
 router.get('/', (req, res) => {
   Order.find()
-    .sort({ date: -1 })
+    .sort({ dateOrder: -1 })
     .then(orders => res.json(orders))
 });
 
 // @route   POST api/orders
-// @desc    Create A Item
+// @desc    Create A Order
 // @access  Public
 router.post('/', (req, res) => {
   const newOrder = new Order({
-    name: req.body.name
+    service: req.body.service,
+    time: req.body.time,
+    type: req.body.type,
+    slots: req.body.slots,
+    dateService: req.body.dateService
   });
 
   newOrder.save().then(order => res.json(order));
@@ -28,13 +32,6 @@ router.post('/', (req, res) => {
 // @route   DELETE api/orders
 // @desc    Delete A Order
 // @access  Public
-router.post('/', (req, res) => {
-  const newOrder = new Order({
-    name: req.body.name
-  });
-
-  newOrder.save().then(order => res.json(order));
-});
 
 router.delete('/:id', (req, res) => {
   Order.findById(req.params.id)

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {FormGroup, Label, Input, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
 
-
 class ContactInfo extends Component {
   constructor(props) {
     super(props);

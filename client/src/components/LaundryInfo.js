@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
-
-
 class LaundryInfo extends Component {
   render() {
     const ironed =
