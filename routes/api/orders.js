@@ -20,12 +20,23 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newOrder = new Order({
     service: req.body.service,
-    time: req.body.time,
-    type: req.body.type,
     slots: req.body.slots,
-    dateService: req.body.dateService
+    collectionTime: req.body.collectionTime,
+    collectionDate: req.body.collectionDate,
+    returnTime: req.body.returnTime,
+    returnDate: req.body.returnDate,
+    softener: req.body.softener,
+    estimatedKG: req.body.estimatedKG,
+    ironed: req.body.ironed,
+    shoes: req.body.shoes,
+    clientName: req.body.clientName,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    locationName: req.body.locationName,
+    roomNumber: req.body.roomNumber,
+    alternativeAddress: req.body.alternativeAddress,
+    paymentType: req.body.paymentType,
   });
-
   newOrder.save().then(order => res.json(order));
 });
 

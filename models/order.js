@@ -11,19 +11,67 @@ const OrderSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  time: {
-    type: String,
-    required: true
-  },
-  type: {
-    type: String,
-    required: true
-  },
   slots: {
     type: Number,
     required: true
   },
-  dateService: {
+  collectionTime: {
+    type: String,
+    required: true
+  },
+  collectionDate: {
+    type: String,
+    required: true
+  },
+  returnTime: {
+    type: String,
+    required: true
+  },
+  returnDate: {
+    type: String,
+    required: true
+  },
+  estimatedKG: {
+    type: Number,
+    default: 1 
+  },
+  ironed: {
+    type: Boolean,
+    default: false
+  },
+  shoes: {
+    type: Number,
+    default: 0
+  },
+  softener: {
+    type: Boolean,
+    default: true
+  },
+  clientName: {
+    type: String,
+    required: true
+  },
+  email: {
+   type: String,
+   required: true 
+  },
+  phoneNumber: {
+    type: String,
+    required: false
+  },
+  locationName: {
+    type: String,
+    required: false
+  },
+  roomNumber: {
+    type: String,
+    required: false
+  },
+  alternativeAddress: {
+    type: String,
+    required: false
+  },
+  paymentType: {
     type: String,
     required: true
   }
