@@ -40,8 +40,8 @@ class AppNavbar extends Component {
             </Nav>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="http://example.com">
-                  Free Zone
+                <NavLink href="/orders">
+                  Your Orders
                 </NavLink>
               </NavItem>
             </Nav>

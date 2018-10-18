@@ -200,6 +200,15 @@ class CollectionDate extends Component {
 }
 
 class ReturnTime extends Component {
+  constructor(props) {
+    super(props);
+    this.handleReturnTimeClick = this.handleReturnTimeClick.bind(this);
+  }
+
+  handleReturnTimeClick(returnTime) {
+    this.props.onReturnTimeClick(returnTime)
+  }
+
   render() {
     const appointmentTimes = AppointmentTimes;
     return (
@@ -209,7 +218,9 @@ class ReturnTime extends Component {
           {appointmentTimes.map((appointmentTime) => (
             <div>
               {(appointmentTime.type === "return" && appointmentTime.date === this.props.returnDate) &&
-                <button className="return-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button 
+                  onClick={()=>{this.handleReturnTimeClick(appointmentTime.time)}} className="return-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}
+                </button>
               }
             </div>
           ))}
@@ -220,6 +231,15 @@ class ReturnTime extends Component {
 }
 
 class CollectionTime extends Component {
+  constructor(props) {
+    super(props);
+    this.handleCollectionTimeClick = this.handleCollectionTimeClick.bind(this);
+  }
+
+  handleCollectionTimeClick(collectionTime) {
+    this.props.onCollectionTimeClick(collectionTime)
+  }
+
   render() {
     const appointmentTimes = AppointmentTimes;
     return (
@@ -229,7 +249,7 @@ class CollectionTime extends Component {
           {appointmentTimes.map((appointmentTime) => (
             <div>
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
-                <button className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button onClick={() => {this.handleCollectionTimeClick(appointmentTime.time)}} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
               }
             </div>
           ))}
@@ -244,6 +264,7 @@ class BookingPage extends Component {
     super(props);
     this.state = {
       collectionDate: getTodayDate(),
+      collectionTime: '',
       service: 'standard',
       returnDate: getTomorrowDate(),
       activeCollected: true,
@@ -257,7 +278,7 @@ class BookingPage extends Component {
       collectedButton3: false,
       collectedButton4: false,
       collectedButton5: false,
-      numKilos: 1,
+      estimatedKG: 1,
       ironed: false,
       shoes: false,
       softener: false,
@@ -266,7 +287,19 @@ class BookingPage extends Component {
     this.handleChooseServiceClick = this.handleChooseServiceClick.bind(this);
     this.handleCollectionDateChange = this.handleCollectionDateChange.bind(this);
     this.handleReturnDateChange = this.handleReturnDateChange.bind(this);
+    this.handleCollectionTimeClick = this.handleCollectionTimeClick.bind(this);
+    this.handleReturnTimeClick = this.handleReturnTimeClick.bind(this);
   }
+
+  // clientName: req.body.clientName,
+  // email: req.body.email,
+  // phoneNumber: req.body.phoneNumber,
+  // locationName: req.body.locationName,
+  // roomNumber: req.body.roomNumber,
+  // alternativeAddress: req.body.alternativeAddress,
+  // paymentType: req.body.paymentType,
+  // status: req.body.status,
+  // actualKG: req.body.actualKG
 
   handleCollectionDateChange(day, month, year, activeCollected, returnButton1, returnButton2, returnButton3, returnButton4, returnButton5, collectedButton1, collectedButton2, collectedButton3, collectedButton4, collectedButton5, ) {
     const addOneDay = () => {
@@ -335,6 +368,13 @@ class BookingPage extends Component {
     })
   }
 
+
+  handleCollectionTimeClick(collectionTime) {
+    this.setState({
+      collectionTime: collectionTime
+    })
+  }
+
   handleReturnDateChange(day, month, year, returnButton1, returnButton2, returnButton3, returnButton4, returnButton5) {
     this.setState({
       returnDate: `${month}/${day}/${year}`,
@@ -343,6 +383,12 @@ class BookingPage extends Component {
       returnButton3: returnButton3,
       returnButton4: returnButton4,
       returnButton5: returnButton5
+    })
+  }
+
+  handleReturnTimeClick(returnTime) {
+    this.setState({
+      returnTime: returnTime
     })
   }
 
@@ -371,13 +417,13 @@ class BookingPage extends Component {
   // ******************** Laundry Info **********************
   handleOnClickAddKG = () => {
     this.setState(prevState => ({
-      numKilos: prevState.numKilos + 1
+      estimatedKG: prevState.estimatedKG + 1
     }));
   }
 
   handleOnClickSubtractKG = () => {
     this.setState(prevState => ({
-      numKilos: prevState.numKilos - 1
+      estimatedKG: prevState.estimatedKG - 1
     }))
   }
 
@@ -406,6 +452,7 @@ class BookingPage extends Component {
   }
 
   render() {
+    console.log("ReturnTIme", this.state.returnTime)
     return (
       <div className="booking-page">
         <AppNavbar />
@@ -417,7 +464,7 @@ class BookingPage extends Component {
           collectionDate={this.state.collectionDate}
           returnDate={this.state.returnDate}
           service={this.state.service}
-          numKilos={this.state.numKilos}
+          estimatedKG={this.state.estimatedKG}
           ironed={this.state.ironed}
           shoes={this.state.shoes}
           softener={this.state.softener}
@@ -446,6 +493,7 @@ class BookingPage extends Component {
             />
             <CollectionTime
               collectionDate={this.state.collectionDate}
+              onCollectionTimeClick={this.handleCollectionTimeClick}
             />
           </div>
         </div>
@@ -469,6 +517,7 @@ class BookingPage extends Component {
             />
             <ReturnTime
               returnDate={this.state.returnDate}
+              onReturnTimeClick={this.handleReturnTimeClick}
             />
           </div>
         </div>
@@ -479,7 +528,7 @@ class BookingPage extends Component {
           handleOnClickShoes={this.handleOnClickShoes}
           handleOnClickAddShoes={this.handleOnClickAddShoes}
           handleOnClickSubtractShoes={this.handleOnClickSubtractShoes}
-          numKilos={this.state.numKilos}
+          estimatedKG={this.state.estimatedKG}
           ironed={this.state.ironed}
           shoes={this.state.shoes}
           softener={this.state.softener}

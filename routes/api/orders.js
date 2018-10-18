@@ -14,6 +14,16 @@ router.get('/', (req, res) => {
     .then(orders => res.json(orders))
 });
 
+// @route   GET api/order
+// @desc    Get Order by id
+// @access  Public
+
+router.get('/:id', (req, res) => {
+  Order.findById(req.params.id)
+    .sort({ dateOrder: -1 })
+    .then(order => res.json(order))
+})
+
 // @route   POST api/orders
 // @desc    Create A Order
 // @access  Public
@@ -36,6 +46,8 @@ router.post('/', (req, res) => {
     roomNumber: req.body.roomNumber,
     alternativeAddress: req.body.alternativeAddress,
     paymentType: req.body.paymentType,
+    status: req.body.status,
+    actualKG: req.body.actualKG
   });
   newOrder.save().then(order => res.json(order));
 });

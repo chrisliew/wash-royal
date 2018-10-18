@@ -23,8 +23,8 @@ class LaundryInfo extends Component {
         <h2>Tell Us About Your Laundry</h2>
         <p>Approximately how heavy is your laundry?</p>
         <p>Don't worry about it being exact, this is just for estimation of costs</p>
-        <button disabled={this.props.numKilos <= 1} onClick={this.props.handleOnClickSubtractKG}>-1KG</button>
-        <span>{this.props.numKilos}KG</span>
+        <button disabled={this.props.estimatedKG <= 1} onClick={this.props.handleOnClickSubtractKG}>-1KG</button>
+        <span>{this.props.estimatedKG}KG</span>
         <button onClick={this.props.handleOnClickAddKG}>+1KG</button>
         <FormGroup check>
           <h5>Extra Services</h5>

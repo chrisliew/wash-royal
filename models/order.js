@@ -74,6 +74,14 @@ const OrderSchema = new Schema({
   paymentType: {
     type: String,
     required: true
+  },
+  status: {
+    type: String,
+    default: "In Progress"
+  },
+  actualKG: {
+    type: Number,
+    default: 1
   }
 });
 

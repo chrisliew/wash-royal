@@ -27,7 +27,7 @@ class OrderSummary extends Component {
       costPerKg = 40000
     }
 
-    const costOfWash = this.props.numKilos * costPerKg
+    const costOfWash = this.props.estimatedKG * costPerKg
     
     return (
       <div className="order-summary">
@@ -36,7 +36,7 @@ class OrderSummary extends Component {
             <p>Your laundry will be collected on {dayOfWeekCollection}, {monthNameCollection} {dayOfMonthCollection} and delivered back to you before {dayOfWeekReturn}, {monthNameReturn} {dayOfMonthReturn} </p>
           </div>
           <div className="delivery-points">
-            <p>Weight: {this.props.numKilos} kg</p>
+            <p>Weight: {this.props.estimatedKG} kg</p>
             <p>Cost of Wash: {costOfWash}d</p>
             <p>Collection:*FREE*</p>
             <p>Delivery:*FREE*</p>
