@@ -4,6 +4,7 @@ import Pricing from './components/Pricing';
 import BookingPage from './components/BookingPage';
 import Orders from './components/Orders';
 import Order from './components/Order';
+import OrderConfirmed from './components/OrderConfirmed';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/orders" component={Orders} />
           <Route path="/orders/:orderId" component={Order} />
           <Route path="/order/new/:id" component={BookingPage} />
+          <Route path="/order/confirmed/:id" component={OrderConfirmed} />
         </div>
       </Router>
     );

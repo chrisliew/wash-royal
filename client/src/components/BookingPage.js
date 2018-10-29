@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { getToday, getDayOfWeek, getMonthName, getMonthNumber, getDayOfMonth, getYear, getTodayDate, getTomorrowDate, getDayAfterTomorrowDate, dateAdd } from './Dates';
+import { getToday, getDayOfWeek, getMonthName, getMonthNumber, getDayOfMonth, getYear, getTodayDate, getTomorrowDate, getDayAfterTomorrowDate } from './Dates';
 import AppNavbar from './AppNavbar';
 import ChooseService from './ChooseService';
-import AppointmentTimes from './AppointmentTimes';
 import OrderSummary from './OrderSummary';
 import LaundryInfo from './LaundryInfo';
 import ContactInfo from './ContactInfo';
 import PickupLocation from './PickupLocation';
 import Payment from './Payment';
-import RequestCollection from './RequestCollection';
+import { Button } from 'reactstrap';
+import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class ReturnDate extends Component {
   constructor(props) {
@@ -210,16 +211,17 @@ class ReturnTime extends Component {
   }
 
   render() {
-    const appointmentTimes = AppointmentTimes;
+    const appointmentTimes = this.props.appointments;
     return (
       <div>
         <h5>Return Time's Available:</h5>
         <div className="return-appointment-available">
           {appointmentTimes.map((appointmentTime) => (
-            <div>
+            <div
+              key={appointmentTime.date + appointmentTime.time + appointmentTime.type}>
               {(appointmentTime.type === "return" && appointmentTime.date === this.props.returnDate) &&
-                <button 
-                  onClick={()=>{this.handleReturnTimeClick(appointmentTime.time)}} className="return-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}
+                <button
+                  onClick={() => { this.handleReturnTimeClick(appointmentTime.time) }} className="return-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}
                 </button>
               }
             </div>
@@ -241,15 +243,16 @@ class CollectionTime extends Component {
   }
 
   render() {
-    const appointmentTimes = AppointmentTimes;
+    const appointmentTimes = this.props.appointments;
     return (
       <div>
         <h5>Collection Time's Available:</h5>
         <div className="collect-appointment-available">
           {appointmentTimes.map((appointmentTime) => (
-            <div>
+            <div
+              key={appointmentTime.date + appointmentTime.time + appointmentTime.type} >
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
-                <button onClick={() => {this.handleCollectionTimeClick(appointmentTime.time)}} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
               }
             </div>
           ))}
@@ -267,6 +270,7 @@ class BookingPage extends Component {
       collectionTime: '',
       service: 'standard',
       returnDate: getTomorrowDate(),
+      returnTime: '',
       activeCollected: true,
       returnButton1: true,
       returnButton2: false,
@@ -283,23 +287,35 @@ class BookingPage extends Component {
       shoes: false,
       softener: false,
       numShoes: 1,
+      appointments: [],
+      clientName: '',
+      email: '',
+      phoneNumber: '',
+      locationName: '',
+      roomNumber: ''
     }
     this.handleChooseServiceClick = this.handleChooseServiceClick.bind(this);
     this.handleCollectionDateChange = this.handleCollectionDateChange.bind(this);
     this.handleReturnDateChange = this.handleReturnDateChange.bind(this);
     this.handleCollectionTimeClick = this.handleCollectionTimeClick.bind(this);
     this.handleReturnTimeClick = this.handleReturnTimeClick.bind(this);
+    this.handleOnClickSubmitOrder = this.handleOnClickSubmitOrder.bind(this);
+    this.handleOnChangeClientName = this.handleOnChangeClientName.bind(this);
+    this.handleOnChangeEmail = this.handleOnChangeEmail.bind(this);
+    this.handleOnChangePhoneNumber = this.handleOnChangePhoneNumber.bind(this);
+    this.handleOnChangeLocation = this.handleOnChangeLocation.bind(this);
+    this.handleOnChangeRoomNumber = this.handleOnChangeRoomNumber.bind(this);
   }
 
-  // clientName: req.body.clientName,
-  // email: req.body.email,
-  // phoneNumber: req.body.phoneNumber,
-  // locationName: req.body.locationName,
-  // roomNumber: req.body.roomNumber,
-  // alternativeAddress: req.body.alternativeAddress,
-  // paymentType: req.body.paymentType,
-  // status: req.body.status,
-  // actualKG: req.body.actualKG
+  componentDidMount() {
+    // Get Appointments from Mongo DB
+    axios.get('/api/appointments')
+      .then(res => {
+        this.setState({
+          appointments: res.data[0].appointments
+        })
+      })
+  }
 
   handleCollectionDateChange(day, month, year, activeCollected, returnButton1, returnButton2, returnButton3, returnButton4, returnButton5, collectedButton1, collectedButton2, collectedButton3, collectedButton4, collectedButton5, ) {
     const addOneDay = () => {
@@ -414,6 +430,39 @@ class BookingPage extends Component {
     })
   }
 
+  // ******************** Contact Info **********************
+  handleOnChangeClientName(clientName) {
+    this.setState({
+      clientName: clientName
+    })
+  }
+
+  handleOnChangeEmail(email) {
+    this.setState({
+      email: email
+    })
+  }
+
+  handleOnChangePhoneNumber(phoneNumber) {
+    this.setState({
+      phoneNumber: phoneNumber
+    })
+  }
+
+  // ******************** Location Info **********************
+
+  handleOnChangeLocation(location) {
+    this.setState({
+      locationName: location
+    })
+  }
+
+  handleOnChangeRoomNumber(roomNumber) {
+    this.setState({
+      roomNumber: roomNumber
+    })
+  }
+
   // ******************** Laundry Info **********************
   handleOnClickAddKG = () => {
     this.setState(prevState => ({
@@ -451,8 +500,38 @@ class BookingPage extends Component {
     }))
   }
 
+  handleOnClickSubmitOrder = event => {
+    event.preventDefault();
+    const order = {
+      "service": this.state.service,
+      "type": "collection",
+      "slots": 3,
+      "collectionTime": this.state.collectionTime,
+      "collectionDate": this.state.collectionDate,
+      "returnTime": this.state.returnTime,
+      "returnDate": this.state.returnDate,
+      "clientName": this.state.clientName,
+      "email": this.state.email,
+      "phoneNumber": this.state.phoneNumber,
+      "locationName": this.state.locationName,
+      "roomNumber": this.state.roomNumber,
+      "paymentType": "cash",
+      "status": "pending",
+      "estimatedKG": this.state.estimatedKG,
+      "actualKG": 5
+    }
+
+    axios.post('/api/orders', order)
+      .then(res => {
+        console.log(res);
+        console.log("YOOOOOO", res.data);
+        window.location.replace("/order/confirmed/:id");
+      })
+
+  }
+
+
   render() {
-    console.log("ReturnTIme", this.state.returnTime)
     return (
       <div className="booking-page">
         <AppNavbar />
@@ -494,6 +573,7 @@ class BookingPage extends Component {
             <CollectionTime
               collectionDate={this.state.collectionDate}
               onCollectionTimeClick={this.handleCollectionTimeClick}
+              appointments={this.state.appointments}
             />
           </div>
         </div>
@@ -518,6 +598,7 @@ class BookingPage extends Component {
             <ReturnTime
               returnDate={this.state.returnDate}
               onReturnTimeClick={this.handleReturnTimeClick}
+              appointments={this.state.appointments}
             />
           </div>
         </div>
@@ -534,10 +615,23 @@ class BookingPage extends Component {
           softener={this.state.softener}
           numShoes={this.state.numShoes}
         />
-        <ContactInfo />
-        <PickupLocation />
+        <ContactInfo
+          handleOnChangeClientName={this.handleOnChangeClientName}
+          handleOnChangeEmail={this.handleOnChangeEmail}
+          handleOnChangePhoneNumber={this.handleOnChangePhoneNumber}
+        />
+        <PickupLocation
+          handleOnChangeLocation={this.handleOnChangeLocation}
+          handleOnChangeRoomNumber={this.handleOnChangeRoomNumber}
+        />
         <Payment />
-        <RequestCollection />
+        <div className="request-collection">
+          <div>
+            <Button onClick={this.handleOnClickSubmitOrder} color="primary" size="lg" block>Request Colletion</Button>
+          </div>
+          <p>By placing an order you agree to our terms of service.</p>
+          <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
+        </div>
       </div>
     )
   }

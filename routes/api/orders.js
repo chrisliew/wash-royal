@@ -22,12 +22,13 @@ router.get('/:id', (req, res) => {
   Order.findById(req.params.id)
     .sort({ dateOrder: -1 })
     .then(order => res.json(order))
-})
+});
 
 // @route   POST api/orders
 // @desc    Create A Order
 // @access  Public
 router.post('/', (req, res) => {
+ 
   const newOrder = new Order({
     service: req.body.service,
     slots: req.body.slots,
@@ -51,6 +52,7 @@ router.post('/', (req, res) => {
   });
   newOrder.save().then(order => res.json(order));
 });
+
 
 // @route   DELETE api/orders
 // @desc    Delete A Order

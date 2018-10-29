@@ -883,3 +883,20 @@ font-family: 'Open Sans';
   background-color: white;
   margin-top: 3em;
 }
+
+/* ************************* Order Confirmed *************************** */
+
+.order-confirmed {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order-confirmed .container {
+  border: 1px solid black;
+  height: 20em;
+  width: 40em;
+  margin-top: 10em;
+}
