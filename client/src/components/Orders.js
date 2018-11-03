@@ -24,6 +24,7 @@ class Orders extends Component {
   }
 
   render() {
+    console.log("ORDERS", this.state.orders)
     return (
       <div>
         <AppNavbar />

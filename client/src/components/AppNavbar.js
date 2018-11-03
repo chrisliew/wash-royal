@@ -34,6 +34,20 @@ class AppNavbar extends Component {
             <NavbarBrand href="/">WashRoyal</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
+                <NavLink href="/auth/login">
+                  Login
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/auth/logout">
+                  Logout
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
                 <NavLink href="/pricing">
                   Pricing
                 </NavLink>

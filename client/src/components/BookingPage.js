@@ -10,7 +10,6 @@ import PickupLocation from './PickupLocation';
 import Payment from './Payment';
 import { Button } from 'reactstrap';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class ReturnDate extends Component {
   constructor(props) {

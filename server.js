@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 
 const orders = require('./routes/api/orders');
 const appointments = require('./routes/api/appointments');
+const authRoutes = require('./routes/api/auth-routes');
+const passportSetup = require('./config/passport-setup');
+const passport = require('passport');
+
 
 const app = express();
 
@@ -23,10 +27,16 @@ mongoose
 // Use Routes 
 app.use('/api/orders', orders);
 app.use('/api/appointments', appointments);
+app.use('/api/auth-routes', authRoutes);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
