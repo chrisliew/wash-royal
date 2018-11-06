@@ -14,7 +14,7 @@ class Login extends Component {
         <AppNavbar />
         Login Using:
         <br />
-        <Link to="/auth/google"><Button className="google-btn" color="primary" size="lg">Google+</Button></Link>
+        <a href="/auth/google">Sign In With Google</a>
       </div>
     )
   }
