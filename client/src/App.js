@@ -23,7 +23,7 @@ class App extends Component {
           <Route path="/auth/logout" component={Logout} />
           <Route path="/auth/google" component={Google} />
           <Route path="/pricing" component={Pricing} />
-          <Route path="/orders" component={Orders} />
+          <Route exact path="/orders" component={Orders} />
           <Route path="/orders/:orderId" component={Order} />
           <Route path="/order/new/:id" component={BookingPage} />
           <Route path="/order/confirmed/:id" component={OrderConfirmed} />

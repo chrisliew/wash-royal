@@ -8,6 +8,7 @@ import About from './About';
 import Footer from './Footer';
 
 class Home extends Component {
+
   render() {
     return(
       <div className="Home">

@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Container,
-  Button,
-} from 'reactstrap';
-
-
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Button } from 'reactstrap';
+import axios from 'axios';
 
 
 class AppNavbar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loggedInStatus: ''
+    }
+    this.loggedInStatusText = this.loggedInStatusText.bind(this);
+  }
+  componentDidMount() {
+    axios.get('/api/current_user')
+      .then(res => {
+        console.log("current user RES.DATA", res.data)
+        this.setState({
+          loggedInStatus: res.data
+        })
+      })
+  }
+
   state = {
     isOpen: false
   }
@@ -26,6 +32,13 @@ class AppNavbar extends Component {
     });
   }
 
+  loggedInStatusText() {
+  if(this.state.loggedInStatus)  {
+     return (<div>Logged In As XXX</div>)
+   } 
+   return (<div>Logged Out</div>)
+  }
+
   render() {
     return (
       <div>
@@ -34,16 +47,14 @@ class AppNavbar extends Component {
             <NavbarBrand href="/">WashRoyal</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/auth/login">
-                  Login
-                </NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/auth/logout">
-                  Logout
-                </NavLink>
+                {this.state.loggedInStatus ?
+                  <NavLink href="/api/logout">
+                    Logout
+                  </NavLink> :
+                  <NavLink href="/auth/login">
+                    Login
+                  </NavLink>
+                }
               </NavItem>
             </Nav>
             <Nav className="ml-auto" navbar>
@@ -56,8 +67,13 @@ class AppNavbar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/orders">
-                  Your Orders
+                  {this.state.loggedInStatus ? <div>Your Orders</div> : null}
                 </NavLink>
+              </NavItem>
+            </Nav>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                {this.loggedInStatusText()}
               </NavItem>
             </Nav>
             <NavbarToggler onClick={this.toggle} />

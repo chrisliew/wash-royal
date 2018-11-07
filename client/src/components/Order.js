@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import AppNavbar from './AppNavbar';
 import { Table } from 'reactstrap';
 import axios from 'axios';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -26,6 +27,7 @@ class Order extends Component {
     console.log("PROPPPS", this.state.order);
     return (
       <div>
+        <AppNavbar />
         <Table bordered size="sm">
           <tbody>
             <tr>
@@ -47,7 +49,7 @@ class Order extends Component {
             <tr>
               <th scope="row">Return Time</th>
               <td>{this.state.order.returnTime}</td>
-            </tr>\
+            </tr>
             <tr>
               <th scope="row">Service Type</th>
               <td>{this.state.order.service}</td>
