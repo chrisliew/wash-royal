@@ -14,7 +14,6 @@ class Logout extends Component {
     axios.get('/api/auth-routes/logout')
       .then(res => {
         const logout = res.data;
-        // console.log("ORDER", order)
         this.setState({
           logout: logout
         })
@@ -22,7 +21,6 @@ class Logout extends Component {
   }
 
   render() {
-    console.log("logout", this.state.logout);
     return (
       <div>
         <AppNavbar />

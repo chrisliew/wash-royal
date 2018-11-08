@@ -10,7 +10,7 @@ class Login extends Component {
         <AppNavbar />
         Login Using:
         <br />
-        <button><a href="/auth/google">Sign In With Google+</a></button>
+        <Button><a href="/auth/google">Sign In With Google+</a></Button>
       </div>
     )
   }

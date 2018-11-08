@@ -16,7 +16,6 @@ class AppNavbar extends Component {
   componentDidMount() {
     axios.get('/api/current_user')
       .then(res => {
-        console.log("current user RES.DATA", res)
         this.setState({
           loggedInStatus: res.data,
           displayName: res.data.displayName

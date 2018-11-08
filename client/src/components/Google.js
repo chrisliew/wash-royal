@@ -14,7 +14,6 @@ class Google extends Component {
     axios.get('/api/auth-routes/google')
       .then(res => {
         const google = res.data;
-        // console.log("ORDER", order)
         this.setState({
           google: google
         })
@@ -22,7 +21,6 @@ class Google extends Component {
   }
 
   render() {
-    console.log("GOOGLE", this.state.google);
     return (
       <div>
         <AppNavbar />

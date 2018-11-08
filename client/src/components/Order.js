@@ -16,7 +16,6 @@ class Order extends Component {
     axios.get('/api/orders/' + this.props.match.params.orderId)
       .then(res => {
         const order = res.data;
-        // console.log("ORDER", order)
         this.setState({
           order: order
         })
@@ -24,7 +23,6 @@ class Order extends Component {
   }
 
   render() {
-    console.log("PROPPPS", this.state.order);
     return (
       <div>
         <AppNavbar />

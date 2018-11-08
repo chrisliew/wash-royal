@@ -318,7 +318,6 @@ class BookingPage extends Component {
       })
     axios.get('/api/current_user')
       .then(res => {
-        console.log("BLAKJFKAJ", res.data.googleId)
         this.setState({
           googleDisplayName: res.data.displayName,
           googleId: res.data.googleId
@@ -418,24 +417,25 @@ class BookingPage extends Component {
   }
 
   handleChooseServiceClick(service) {
+    console.log("COLLECT DATE", this.state.collectionDate)
+    console.log("RETURN DATE", this.state.returnDate)
     if (service === "standard") {
       this.setState({
-        returnDate: getTomorrowDate(),
+        returnDate: moment(this.state.collectionDate, "MM-DD-YYYY").add(1, 'days').format("MM/DD/YYYY")
       })
     }
     else if (service === "express") {
       this.setState({
-        returnDate: getTodayDate(),
+        returnDate: this.state.collectionDate
       })
     }
     else if (service === "economy") {
       this.setState({
-        returnDate: getDayAfterTomorrowDate(),
+        returnDate: moment(this.state.collectionDate, "MM-DD-YYYY").add(2, 'days').format("MM/DD/YYYY")
       })
     }
     this.setState({
-      service: service,
-      collectionDate: getTodayDate(),
+      service: service
     })
   }
 
@@ -533,8 +533,6 @@ class BookingPage extends Component {
 
     axios.post('/api/orders', order)
       .then(res => {
-        console.log(res);
-        console.log("YOOOOOO", res.data);
         window.location.replace("/order/confirmed/:id");
       })
 
