@@ -8,16 +8,18 @@ class AppNavbar extends Component {
   constructor() {
     super();
     this.state = {
-      loggedInStatus: ''
+      loggedInStatus: '',
+      displayName: ''
     }
     this.loggedInStatusText = this.loggedInStatusText.bind(this);
   }
   componentDidMount() {
     axios.get('/api/current_user')
       .then(res => {
-        console.log("current user RES.DATA", res.data)
+        console.log("current user RES.DATA", res)
         this.setState({
-          loggedInStatus: res.data
+          loggedInStatus: res.data,
+          displayName: res.data.displayName
         })
       })
   }
@@ -34,7 +36,7 @@ class AppNavbar extends Component {
 
   loggedInStatusText() {
   if(this.state.loggedInStatus)  {
-     return (<div>Logged In As XXX</div>)
+     return (<div>Logged In As {this.state.displayName}</div>)
    } 
    return (<div>Logged Out</div>)
   }
@@ -85,7 +87,7 @@ class AppNavbar extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/order/new/:id"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+                  <NavLink href="/order/new"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

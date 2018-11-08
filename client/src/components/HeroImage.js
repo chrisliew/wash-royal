@@ -9,7 +9,7 @@ const HeroImage = () => {
           <h1>Laundry Done Quick and Easy In Da Nang</h1>
           <h2>Free Pickup and Delivery within the city</h2>
           <p>Prices starting at 20,000 per kg</p>
-          <NavLink href="/order/new/:id"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+          <NavLink href="/order/new"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
           {/* <Button color="success" size="lg">Book A Collection</Button>{' '} */}
         </Container>
       </Jumbotron>

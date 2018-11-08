@@ -49,7 +49,8 @@ router.post('/', (req, res) => {
     alternativeAddress: req.body.alternativeAddress,
     paymentType: req.body.paymentType,
     status: req.body.status,
-    actualKG: req.body.actualKG
+    actualKG: req.body.actualKG,
+    googleId: req.body.googleId
   });
   newOrder.save().then(order => res.json(order));
 });

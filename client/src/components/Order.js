@@ -55,7 +55,7 @@ class Order extends Component {
               <td>{this.state.order.service}</td>
             </tr>
             <tr>
-              <th scope="row">Service Type</th>
+              <th scope="row">Estimated KG</th>
               <td>{this.state.order.estimatedKG}</td>
             </tr>
           </tbody>

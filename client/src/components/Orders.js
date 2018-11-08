@@ -8,7 +8,8 @@ import AppNavbar from './AppNavbar';
 class Orders extends Component {
   state = {
     orders: [],
-    order: []
+    order: [],
+    googleId: ''
   }
 
   componentDidMount() {
@@ -17,6 +18,12 @@ class Orders extends Component {
         const orders = res.data;
         this.setState({ orders: orders })
       })
+    axios.get('/api/current_user')
+      .then(res => {
+        this.setState({
+          googleId: res.data.googleId
+        })
+      })
   }
 
   handleClickLink() {
@@ -24,7 +31,9 @@ class Orders extends Component {
   }
 
   render() {
-    console.log("ORDERS", this.state.orders)
+    const ordersFilterGoogleId = this.state.orders.filter(order => 
+      this.state.googleId === order.googleId
+    )
     return (
       <div>
         <AppNavbar />
@@ -32,6 +41,7 @@ class Orders extends Component {
           <thead>
             <tr>
               <th>Reference</th>
+              <th>GoogleID</th>
               <th>Latest Status</th>
               <th>Service</th>
               <th>Collection Date</th>
@@ -41,7 +51,7 @@ class Orders extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.orders.map(order =>
+            {ordersFilterGoogleId.map(order =>
               <tr key={order._id}>
                 <td>
                   <Link
@@ -49,6 +59,7 @@ class Orders extends Component {
                     to={`/orders/${order._id}`}>{order._id}
                   </Link>
                 </td>
+                <td>{order.googleId}</td>
                 <td>{order.status}</td>
                 <td>{order.service}</td>
                 <td>{order.collectionDate}</td>

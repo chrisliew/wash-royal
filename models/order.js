@@ -82,6 +82,9 @@ const OrderSchema = new Schema({
   actualKG: {
     type: Number,
     default: 1
+  },
+  googleId: {
+    type: String
   }
 });
 

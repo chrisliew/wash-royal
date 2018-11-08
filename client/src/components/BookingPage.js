@@ -291,7 +291,9 @@ class BookingPage extends Component {
       email: '',
       phoneNumber: '',
       locationName: '',
-      roomNumber: ''
+      roomNumber: '',
+      googleId: '',
+      googleDisplayName: '',
     }
     this.handleChooseServiceClick = this.handleChooseServiceClick.bind(this);
     this.handleCollectionDateChange = this.handleCollectionDateChange.bind(this);
@@ -312,6 +314,14 @@ class BookingPage extends Component {
       .then(res => {
         this.setState({
           appointments: res.data[0].appointments
+        })
+      })
+    axios.get('/api/current_user')
+      .then(res => {
+        console.log("BLAKJFKAJ", res.data.googleId)
+        this.setState({
+          googleDisplayName: res.data.displayName,
+          googleId: res.data.googleId
         })
       })
   }
@@ -517,7 +527,8 @@ class BookingPage extends Component {
       "paymentType": "cash",
       "status": "pending",
       "estimatedKG": this.state.estimatedKG,
-      "actualKG": 5
+      "actualKG": 5,
+      "googleId": this.state.googleId
     }
 
     axios.post('/api/orders', order)
@@ -626,7 +637,7 @@ class BookingPage extends Component {
         <Payment />
         <div className="request-collection">
           <div>
-            <Button onClick={this.handleOnClickSubmitOrder} color="primary" size="lg" block>Request Colletion</Button>
+            <Button onClick={this.handleOnClickSubmitOrder} color="primary" size="lg" block>Request Collection</Button>
           </div>
           <p>By placing an order you agree to our terms of service.</p>
           <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
