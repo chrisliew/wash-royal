@@ -8,6 +8,7 @@ import LaundryInfo from './LaundryInfo';
 import ContactInfo from './ContactInfo';
 import PickupLocation from './PickupLocation';
 import Payment from './Payment';
+import appointmentTimes from '../appointmentTimes';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 
@@ -210,12 +211,22 @@ class ReturnTime extends Component {
   }
 
   render() {
-    const appointmentTimes = this.props.appointments;
+    const addOneDay = moment(getTodayDate(), "MM-DD-YYYY").add(1, 'days').format("MM/DD/YYYY");
+    const addTwoDays = moment(getTodayDate(), "MM-DD-YYYY").add(2, 'days').format("MM/DD/YYYY");
+    const addThreeDays = moment(getTodayDate(), "MM-DD-YYYY").add(3, 'days').format("MM/DD/YYYY");
+    const addFourDays = moment(getTodayDate(), "MM-DD-YYYY").add(4, 'days').format("MM/DD/YYYY");
+    const addFiveDays = moment(getTodayDate(), "MM-DD-YYYY").add(5, 'days').format("MM/DD/YYYY");
+    const addSixDays = moment(getTodayDate(), "MM-DD-YYYY").add(6, 'days').format("MM/DD/YYYY");
+    
+    const filteredAppointmentTimes = appointmentTimes.filter(appointmentTime =>
+      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays 
+    );
+
     return (
       <div>
         <h5>Return Time's Available:</h5>
         <div className="return-appointment-available">
-          {appointmentTimes.map((appointmentTime) => (
+          {filteredAppointmentTimes.map((appointmentTime) => (
             <div
               key={appointmentTime.date + appointmentTime.time + appointmentTime.type}>
               {(appointmentTime.type === "return" && appointmentTime.date === this.props.returnDate) &&
@@ -242,12 +253,22 @@ class CollectionTime extends Component {
   }
 
   render() {
-    const appointmentTimes = this.props.appointments;
+    const addOneDay = moment(getTodayDate(), "MM-DD-YYYY").add(1, 'days').format("MM/DD/YYYY");
+    const addTwoDays = moment(getTodayDate(), "MM-DD-YYYY").add(2, 'days').format("MM/DD/YYYY");
+    const addThreeDays = moment(getTodayDate(), "MM-DD-YYYY").add(3, 'days').format("MM/DD/YYYY");
+    const addFourDays = moment(getTodayDate(), "MM-DD-YYYY").add(4, 'days').format("MM/DD/YYYY");
+    const addFiveDays = moment(getTodayDate(), "MM-DD-YYYY").add(5, 'days').format("MM/DD/YYYY");
+    const addSixDays = moment(getTodayDate(), "MM-DD-YYYY").add(6, 'days').format("MM/DD/YYYY");
+    
+    const filteredAppointmentTimes = appointmentTimes.filter(appointmentTime =>
+      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays 
+    );
+
     return (
       <div>
         <h5>Collection Time's Available:</h5>
         <div className="collect-appointment-available">
-          {appointmentTimes.map((appointmentTime) => (
+          {filteredAppointmentTimes.map((appointmentTime) => (
             <div
               key={appointmentTime.date + appointmentTime.time + appointmentTime.type} >
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
@@ -294,6 +315,7 @@ class BookingPage extends Component {
       roomNumber: '',
       googleId: '',
       googleDisplayName: '',
+      appointmentTimes: []
     }
     this.handleChooseServiceClick = this.handleChooseServiceClick.bind(this);
     this.handleCollectionDateChange = this.handleCollectionDateChange.bind(this);
@@ -417,8 +439,6 @@ class BookingPage extends Component {
   }
 
   handleChooseServiceClick(service) {
-    console.log("COLLECT DATE", this.state.collectionDate)
-    console.log("RETURN DATE", this.state.returnDate)
     if (service === "standard") {
       this.setState({
         returnDate: moment(this.state.collectionDate, "MM-DD-YYYY").add(1, 'days').format("MM/DD/YYYY")

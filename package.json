@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Laundry Washing booking app",
   "main": "server.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
