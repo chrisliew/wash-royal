@@ -29,7 +29,6 @@ router.get('/:id', (req, res) => {
 // @desc    Create A Order
 // @access  Public
 router.post('/', (req, res) => {
- 
   const newOrder = new Order({
     service: req.body.service,
     slots: req.body.slots,
@@ -50,11 +49,11 @@ router.post('/', (req, res) => {
     paymentType: req.body.paymentType,
     status: req.body.status,
     actualKG: req.body.actualKG,
-    googleId: req.body.googleId
+    googleId: req.body.googleId,
+    orderId: req.body.orderId
   });
   newOrder.save().then(order => res.json(order));
 });
-
 
 // @route   DELETE api/orders
 // @desc    Delete A Order

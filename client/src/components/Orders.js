@@ -41,7 +41,7 @@ class Orders extends Component {
           <thead>
             <tr>
               <th>Reference</th>
-              <th>GoogleID</th>
+              <th>OrderId</th>
               <th>Latest Status</th>
               <th>Service</th>
               <th>Collection Date</th>
@@ -56,10 +56,10 @@ class Orders extends Component {
                 <td>
                   <Link
                     onClick={this.handleClickLink}
-                    to={`/orders/${order._id}`}>{order._id}
+                    to={`/orders/${order._id}`}>Details
                   </Link>
                 </td>
-                <td>{order.googleId}</td>
+                <td>{order.orderId}</td>
                 <td>{order.status}</td>
                 <td>{order.service}</td>
                 <td>{order.collectionDate}</td>

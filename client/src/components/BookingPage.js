@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import uuidv4 from 'uuid/v4';
 import { getToday, getDayOfWeek, getMonthName, getMonthNumber, getDayOfMonth, getYear, getTodayDate, getTomorrowDate, getDayAfterTomorrowDate } from './Dates';
 import AppNavbar from './AppNavbar';
 import ChooseService from './ChooseService';
@@ -217,9 +218,9 @@ class ReturnTime extends Component {
     const addFourDays = moment(getTodayDate(), "MM-DD-YYYY").add(4, 'days').format("MM/DD/YYYY");
     const addFiveDays = moment(getTodayDate(), "MM-DD-YYYY").add(5, 'days').format("MM/DD/YYYY");
     const addSixDays = moment(getTodayDate(), "MM-DD-YYYY").add(6, 'days').format("MM/DD/YYYY");
-    
+
     const filteredAppointmentTimes = appointmentTimes.filter(appointmentTime =>
-      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays 
+      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays
     );
 
     return (
@@ -259,9 +260,9 @@ class CollectionTime extends Component {
     const addFourDays = moment(getTodayDate(), "MM-DD-YYYY").add(4, 'days').format("MM/DD/YYYY");
     const addFiveDays = moment(getTodayDate(), "MM-DD-YYYY").add(5, 'days').format("MM/DD/YYYY");
     const addSixDays = moment(getTodayDate(), "MM-DD-YYYY").add(6, 'days').format("MM/DD/YYYY");
-    
+
     const filteredAppointmentTimes = appointmentTimes.filter(appointmentTime =>
-      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays 
+      appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays
     );
 
     return (
@@ -315,7 +316,8 @@ class BookingPage extends Component {
       roomNumber: '',
       googleId: '',
       googleDisplayName: '',
-      appointmentTimes: []
+      appointmentTimes: [],
+      orderId: uuidv4().slice(0, 8),
     }
     this.handleChooseServiceClick = this.handleChooseServiceClick.bind(this);
     this.handleCollectionDateChange = this.handleCollectionDateChange.bind(this);
@@ -531,6 +533,7 @@ class BookingPage extends Component {
 
   handleOnClickSubmitOrder = event => {
     event.preventDefault();
+
     const order = {
       "service": this.state.service,
       "type": "collection",
@@ -548,14 +551,18 @@ class BookingPage extends Component {
       "status": "pending",
       "estimatedKG": this.state.estimatedKG,
       "actualKG": 5,
-      "googleId": this.state.googleId
+      "googleId": this.state.googleId,
+      "orderId": this.state.orderId
     }
 
+    axios.post('/api/email', order)
+      .then(res => {
+        console.log("REZZZ", res)
+      })
     axios.post('/api/orders', order)
       .then(res => {
         window.location.replace("/order/confirmed/:id");
       })
-
   }
 
 

@@ -85,6 +85,9 @@ const OrderSchema = new Schema({
   },
   googleId: {
     type: String
+  },
+  orderId: {
+    type: String
   }
 });
 

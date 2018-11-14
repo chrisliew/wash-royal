@@ -9,6 +9,7 @@ require('./models/User');
 const passportSetup = require('./config/passport-setup');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -38,7 +39,7 @@ mongoose
 app.use('/api/orders', orders);
 app.use('/api/appointments', appointments);
 require('./routes/api/auth-routes')(app);
-
+require('./routes/api/email')(app);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
