@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Item Model
-const Order = require('../../models/Order');
+const Order = require('../../models/order');
 
 // @route   GET api/orders
 // @desc    Get All Orders
