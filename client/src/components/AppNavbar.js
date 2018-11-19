@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Button } from 'reactstrap';
+import Stripe from './Stripe';
 import axios from 'axios';
 
 
@@ -34,10 +35,15 @@ class AppNavbar extends Component {
   }
 
   loggedInStatusText() {
-  if(this.state.loggedInStatus)  {
-     return (<div>Logged In As {this.state.displayName}</div>)
-   } 
-   return (<div>Logged Out</div>)
+    if (this.state.loggedInStatus) {
+      return (
+      <div>
+        <div>Logged In As {this.state.displayName}</div>
+        <div><Stripe /></div>
+      </div>
+      )
+    }
+    return (<div>Logged Out</div>)
   }
 
   render() {

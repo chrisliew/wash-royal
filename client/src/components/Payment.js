@@ -39,7 +39,6 @@ class Payment extends Component {
     const creditCardInfo =
       <div>
         Your card will only be charged once we have collected and weighed your laundry.
-        Add Credit Info here, inputs and everything
       </div>
 
     const bankTransfer =
@@ -49,7 +48,7 @@ class Payment extends Component {
       </div>
 
     const cash =
-     <div>
+      <div>
         If you are unable to be around for delivery, we highly recommend paying by card or bank transfer.
       </div>
 
@@ -75,7 +74,7 @@ class Payment extends Component {
           </FormGroup>
           <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3}/>{' '}
+              <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3} />{' '}
               Cash on Delivery
               {this.state.radioButton3 && cash}
             </Label>
