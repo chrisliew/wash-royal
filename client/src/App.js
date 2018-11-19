@@ -5,7 +5,6 @@ import BookingPage from './components/BookingPage';
 import Orders from './components/Orders';
 import Order from './components/Order';
 import OrderConfirmed from './components/OrderConfirmed';
-import Login from './components/Login';
 import Logout from './components/Logout';
 import Google from './components/Google';
 
@@ -19,7 +18,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" component={Home} />
-          <Route path="/auth/login" component={Login} />
           <Route path="/auth/logout" component={Logout} />
           <Route path="/auth/google" component={Google} />
           <Route path="/pricing" component={Pricing} />

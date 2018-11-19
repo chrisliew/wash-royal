@@ -35,7 +35,7 @@ class Orders extends Component {
       this.state.googleId === order.googleId
     )
     return (
-      <div>
+      <div className="orders">
         <AppNavbar />
         <Table striped>
           <thead>

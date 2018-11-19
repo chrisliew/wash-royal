@@ -164,11 +164,10 @@ class CollectionDate extends Component {
 
     return (
       <div>
-        <div className="collection-time">
-          <h1 className="header" >Collection Time</h1>
-          <h2>Collected on {dayOfWeek}, {monthName} {dayOfMonth}</h2>
+        <div className="collection-date">
+          <h2 className="header"><b>2. Collection Date</b></h2>
+          <h4>Select Date:</h4>
           <div className="buttons">
-
             <button
               className={this.props.collectedButton1 ? "button-selected" : "button"}
               onClick={() => { this.handleCollectionDateChange(getDayOfMonth(0), getMonthNumber(0), getYear(0), false, true, false, false, false, false, true, false, false, false, false) }}
@@ -195,6 +194,7 @@ class CollectionDate extends Component {
             >{getToday(4)} {<br />} {getDayOfMonth(4)}
             </button>
           </div>
+          <h4>Collected on <b>{dayOfWeek}, {monthName} {dayOfMonth}</b></h4>
         </div>
       </div>
     )
@@ -266,14 +266,15 @@ class CollectionTime extends Component {
     );
 
     return (
-      <div>
-        <h5>Collection Time's Available:</h5>
+      <div className="collection-time-container">
+        <h4><b>Collection Time's Available:</b></h4>
         <div className="collect-appointment-available">
           {filteredAppointmentTimes.map((appointmentTime) => (
+            // Click button then clear state of other ones, then setState active of button
             <div
               key={appointmentTime.date + appointmentTime.time + appointmentTime.type} >
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
-                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }}  className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
               }
             </div>
           ))}
@@ -283,14 +284,43 @@ class CollectionTime extends Component {
   }
 }
 
+
+
 class BookingPage extends Component {
   constructor(props) {
     super(props);
+
+    const serviceType = () => {
+      const serviceURL = this.props.location.pathname
+      if(serviceURL.includes("economy")) {
+        return "economy"
+      }
+      else if(serviceURL.includes("standard")) {
+        return "standard"
+      }
+      else if(serviceURL.includes("express")) {
+        return "express"
+      }
+    }
+
+    const returnDateInitial = () => {
+      const serviceURL = this.props.location.pathname
+      if(serviceURL.includes("economy")) {
+        return getDayAfterTomorrowDate()
+      }
+      else if(serviceURL.includes("standard")) {
+        return getTomorrowDate()
+      }
+      else if(serviceURL.includes("express")) {
+        return getTodayDate()
+      }
+    }
+
     this.state = {
       collectionDate: getTodayDate(),
       collectionTime: '',
-      service: 'standard',
-      returnDate: getTomorrowDate(),
+      service: serviceType(),
+      returnDate: returnDateInitial(),
       returnTime: '',
       activeCollected: true,
       returnButton1: true,
@@ -586,9 +616,6 @@ class BookingPage extends Component {
 
         />
         <div className="collect-return">
-          Collection Date: {this.state.collectionDate}
-          <p>Service Type: {this.state.service}</p>
-
           <div className="collect">
             <CollectionDate
               onCollectionDateChange={this.handleCollectionDateChange}

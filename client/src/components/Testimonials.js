@@ -11,13 +11,13 @@ class Testimonials extends Component {
           <div className="media">
             <a href="/" className="pull-left animated rotateIn">
               <img
-                className="img-circle" src="http://gravatar.com/avatar/5ff03ed9872ea8b1e8214e37f06af586?s=512" width="70px" 
+                className="img-circle" src="/pictures/delivery-man.png" width="70px" 
                 alt="Testimonial 1"  
                 />
             </a>
             <div className="media-body animated slideInRight">
-              <h3>Chris Liew</h3>
-              <em>CEO, <a href="http://w3eden.com">W3 Eden</a></em>
+              <h3>Charles King</h3>
+              <em>From Vancouver, Canada</em>
             </div>
           </div>
           <div className="tm"></div>
@@ -31,14 +31,14 @@ class Testimonials extends Component {
           <div className="media">
             <a href="/" className="pull-left animated rotateIn">
               <img 
-                src="http://gravatar.com/avatar/5ff03ed9872ea8b1e8214e37f06af586?s=512" width="70px" 
+                src="/pictures/delivery-man.png" width="70px" 
                 className="img-circle" 
                 alt="Testimonial 2"  
                 />
             </a>
             <div className="media-body animated slideInRight">
-              <h3>Adam Othman</h3>
-              <em>CEO, <a href="http://w3eden.com">W3 Eden</a></em>
+              <h3>Andy Kim</h3>
+              <em>From Seoul, Korea</em>
             </div>
           </div>
           <div className="tm"></div>

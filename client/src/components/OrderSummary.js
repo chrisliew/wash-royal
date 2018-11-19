@@ -33,16 +33,16 @@ class OrderSummary extends Component {
       <div className="order-summary">
         <div className="fix-this">
           <div className="delivery-details">
-            <p>Your laundry will be collected on {dayOfWeekCollection}, {monthNameCollection} {dayOfMonthCollection} and delivered back to you before {dayOfWeekReturn}, {monthNameReturn} {dayOfMonthReturn} </p>
+            <p>Your laundry will be collected on {dayOfWeekCollection}, {monthNameCollection} {dayOfMonthCollection} and delivered back to you on {dayOfWeekReturn}, {monthNameReturn} {dayOfMonthReturn} </p>
           </div>
           <div className="delivery-points">
             <p>Weight: {this.props.estimatedKG} kg</p>
-            <p>Cost of Wash: {costOfWash}d</p>
+            <p>Cost of Wash: {costOfWash} ₫</p>
             <p>Collection:*FREE*</p>
             <p>Delivery:*FREE*</p>
           </div>
           <div className="price-estimate">
-            <p> {costOfWash}d</p>
+            <p> Estimated Cost: {costOfWash} ₫</p>
           </div>
         </div>
       </div>

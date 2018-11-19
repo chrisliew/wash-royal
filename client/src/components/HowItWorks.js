@@ -27,7 +27,7 @@ const HowItWorks = () => {
           <div className="long-info">Your clean laundry is returned to you in as little as 6 hours with our express service, or 24 hours with our standard service.</div>
         </div>
       </div>
-      <NavLink href="/order/new"><Button color="success" size="lg">Book A Collection</Button>{' '}</NavLink>    </div>
+      <NavLink href="/order/new/standard"><Button color="success" size="lg">Book A Collection</Button>{' '}</NavLink>    </div>
   )
 }
 

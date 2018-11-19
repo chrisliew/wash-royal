@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
 
 class ChooseService extends Component {
   constructor(props) {
@@ -15,9 +16,8 @@ class ChooseService extends Component {
     return (
       <div className="choose-service">
         <div className="container">
-          <h1>Choose Service Type: {this.props.service} chosen</h1>
+          <h2>1. Choose Service Type</h2>
           <div>
-          
             <div className="cards">
               <div className={this.props.service === 'economy' ? "card-selected" : "card"} onClick={(e) => this.handleChooseServiceClick("economy", e)}>
                 <header>
@@ -26,51 +26,51 @@ class ChooseService extends Component {
                 <div>
                   <div className="price-container">
                     <div className="price" >20,000</div>
-                    <div className="denomination">D/kg</div>
+                    <div className="denomination">₫/kg</div>
                   </div>
                   <div className="points">
                     <ul>
-                      <li>24 hours</li>
-                      <li>Quick</li>
-                      <li>Easy</li>
+                      <li>48 hour completion</li>
+                      <li>Free Delivery and Return</li>
+                      <li>Guaranteed</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className={this.props.service === 'standard' ? "card-selected" : "card"}onClick={(e) => this.handleChooseServiceClick("standard", e)}>
+              <div className={this.props.service === 'standard' ? "card-selected" : "card"} onClick={(e) => this.handleChooseServiceClick("standard", e)}>
                 <header>
                   Standard
                 </header>
                 <div>
                   <div className="price-container">
                     <div className="price" >30,000</div>
-                    <div className="denomination">D/kg</div>
+                    <div className="denomination">₫/kg</div>
                   </div>
                   <div className="points">
                     <ul>
-                      <li>24 hours</li>
-                      <li>Quick</li>
-                      <li>Easy</li>
+                      <li>24 hour completion</li>
+                      <li>Free Delivery and Return</li>
+                      <li>Guaranteed</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className={this.props.service === 'express' ? "card-selected" : "card"}  onClick={(e) => this.handleChooseServiceClick("express", e)}>
+              <div className={this.props.service === 'express' ? "card-selected" : "card"} onClick={(e) => this.handleChooseServiceClick("express", e)}>
                 <header>
                   Express
                 </header>
                 <div>
                   <div className="price-container">
                     <div className="price" >40,000</div>
-                    <div className="denomination">D/kg</div>
+                    <div className="denomination">₫/kg</div>
                   </div>
                   <div className="points">
                     <ul>
-                      <li>24 hours</li>
-                      <li>Quick</li>
-                      <li>Easy</li>
+                      <li>6 hour completion</li>
+                      <li>Free Delivery and Return</li>
+                      <li>Guaranteed</li>
                     </ul>
                   </div>
                 </div>

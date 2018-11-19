@@ -16,7 +16,7 @@ body {
 
 #nav-bar {
   height: 4.5em;
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1;
@@ -524,23 +524,32 @@ font-family: 'Open Sans';
 
 .choose-service .container {
   border: 1px solid black;
-  height: 30em;
-  width: 60em;
+  height: 31em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
+  margin-bottom: 2em;
+}
+
+.choose-service .container h2 {
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
 }
 
 .choose-service .container .cards {
   height: 25em;
   display: flex;
+  justify-content: space-around;
 }
 
 .choose-service .container .cards .card {
   border: 2px solid black;
   height: 100%;
   width: 17em;
+  transition: all .2s ease-in-out;
 }
 
 .choose-service .container .cards .card-selected {
@@ -548,14 +557,25 @@ font-family: 'Open Sans';
   height: 100%;
   width: 17em;
   filter: brightness(50%);
-  background-color: orange;
+  background-color: lightblue;
+  transform: scale(1.03);
 }
 
-.choose-service .container .card-selected header {
-  height: 1em;
+.choose-service .container .card header {
+  height: 7em;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2em;
+  border-bottom: 1px solid black;
+}
+
+.choose-service .container .card-selected header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1em;
+  border-bottom: 1px solid black;
   font-size: 2em;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -563,20 +583,10 @@ font-family: 'Open Sans';
 
 .choose-service .container .cards .card:hover {
   filter: brightness(50%);
-  /* -webkit-transition: filter 1s; */
+  transform: scale(1.03);
 }
 
 
-
-
-.choose-service .container .card header {
-  height: 7em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: #007bff; */
-  font-size: 2em;
-}
 
 .choose-service .container .price-container {
   display: flex;
@@ -585,7 +595,6 @@ font-family: 'Open Sans';
   align-items: center;
   height: 15em;
   border-bottom: 1px solid black;
-  /* background-color: white; */
 }
 
 .choose-service .container .price {
@@ -594,14 +603,7 @@ font-family: 'Open Sans';
 
 .choose-service .container .points {
   font-size: 1.2em;
-  /* background-color: white; */
 }
-
-.choose-service .container .cards {
-  display: flex;
-  justify-content: space-between;
-}
-
 
 /* ************************* Order Summary *************************** */
 
@@ -613,55 +615,57 @@ font-family: 'Open Sans';
 
 .order-summary .fix-this {
   position: fixed;
+  margin-top: 5em;
   height: 27em;
-  width: 17em;
+  width: 18.5em;
   border: 1px solid black;
-  background-color: darkblue;
-  color: white;
+  background-color: white;
 }
 
 .order-summary .delivery-details {
-  height: 10em;
-  background-color: lightblue;
+  height: 7em;
   font-size: 1.1em;
   padding-left: 1em;
+  padding-top: 0.5em;
+  border-bottom: 1px solid black;
 }
 
 .order-summary .delivery-points {
-  height: 10em;
-  background-color: darkcyan;
+  height: 13em;
   font-size: 1.1em;
   padding-left: 1em;
+  padding-top: 2em;
+  border-bottom: 1px solid black;
 }
 
 .order-summary .price-estimate {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5em;
-}
-
-
-/* ************************* Collection Time *************************** */
-
-.collection-time {
-}
-
-.collection-time .header {
-  margin-left: 1em;
-}
-
-.collection-time .description {
-  margin-left: 1.5em;
   font-size: 1.5em;
 }
 
-.collection-time .buttons {
+
+/* ************************* Collection date *************************** */
+
+.collection-date {
+}
+
+.collection-date .header {
+  margin-top: 0.5em;
+}
+
+.collection-date h4 {
+  margin-left: 1em;
+  margin-top: 1.5em;
+}
+
+.collection-date .buttons {
   margin-left: 2em;
   margin-top: 1em;
 }
 
-.collection-time .button {
+.collection-date .button {
   border: 1px solid black;
   border-radius: 5px;
   height: 5em;
@@ -671,7 +675,7 @@ font-family: 'Open Sans';
   font-size: 1em;
 }
 
-.collection-time .button-selected {
+.collection-date .button-selected {
   border: 1px solid black;
   border-radius: 5px;
   height: 6em;
@@ -681,14 +685,14 @@ font-family: 'Open Sans';
   color: white;
 }
 
-.collection-time .button:hover
+.collection-date .button:hover
 {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
 
-.collection-time .button:focus
+.collection-date .button:focus
 {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -768,26 +772,33 @@ font-family: 'Open Sans';
 /* ************************* Collect-Return Time *************************** */
 
 .collect-return {
-  border: 5px solid orange;
+  border: 1px solid black;
   height: 30em;
-  width: 65em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
-  /* margin-top: 3em; */
 }
 
-/* ************************* Collect Appointments *************************** */
+/* ************************* Collection Time *************************** */
 
 .collect {
   display: flex;
   justify-content: space-around;
 }
 
+.collection-time-container {
+  margin-top: 3em;
+}
+
+.collection-time-container h4 {
+  margin-bottom: 1em;
+}
+
 .collect-appointment-available {
   display: flex;
   flex-wrap: wrap;
-  width: 23em;
+  width: 25em;
   font-size: 1.2em;
   max-height: 40em;
   border: 1px solid black;
@@ -796,8 +807,6 @@ font-family: 'Open Sans';
 .collect-appointment-available .appointment-time {
   border: 1px solid black;
   margin: 0.5em;
-  height: 80px;
-  width: 80px;
 }
 
 /* ************************* Return Appointments *************************** */
@@ -883,6 +892,13 @@ font-family: 'Open Sans';
   margin-top: 3em;
 }
 
+/* ************************* Orders *************************** */
+.orders{
+  margin-top: 8em;
+}
+
+
+
 /* ************************* Order Confirmed *************************** */
 
 .order-confirmed {
@@ -900,9 +916,57 @@ font-family: 'Open Sans';
   margin-top: 10em;
 }
 
-/* ************************* Login *************************** */
+/* ************************* Button Link *************************** */
 
-.google-btn {
-  margin-left: 2em;
-  margin-top: 2em;
+.order-type-link {
+  width: 100%;
+}
+
+/* ************************* Button Link *************************** */
+.login {
+  margin-bottom: 1.5em;
+}
+
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
+
+/* Google */
+.loginBtn--google {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #DD4B39;
+}
+.loginBtn--google:before {
+  border-right: #BB3F30 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+}
+.loginBtn--google:hover,
+.loginBtn--google:focus {
+  background: #E74B37;
 }

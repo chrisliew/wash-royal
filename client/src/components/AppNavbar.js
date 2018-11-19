@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Button } from 'reactstrap';
+import Login from './Login';
 import Stripe from './Stripe';
 import axios from 'axios';
 
@@ -49,7 +50,7 @@ class AppNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar id="nav-bar" color="primary" dark expand="sm" className="mb-5">
+        <Navbar id="nav-bar" color="primary" dark expand="sm" className="mb-5" sticky="top">
           <Container>
             <NavbarBrand href="/">WashRoyal</NavbarBrand>
             <Nav className="ml-auto" navbar>
@@ -58,9 +59,7 @@ class AppNavbar extends Component {
                   <NavLink href="/api/logout">
                     Logout
                   </NavLink> :
-                  <NavLink href="/auth/login">
-                    Login
-                  </NavLink>
+                  <Login />
                 }
               </NavItem>
             </Nav>
@@ -87,12 +86,7 @@ class AppNavbar extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="http://github.com/chrisliew">
-                    Github
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/order/new"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+                  <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

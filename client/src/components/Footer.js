@@ -6,26 +6,22 @@ class Footer extends Component {
       <div>
         <footer className="footer-distributed">
           <div className="footer-left">
-            <h3>Company<span>logo</span></h3>
+            <h3>WashDrop<span>AddLogoHere</span></h3>
             <p className="footer-links">
               <a href="/">Home</a>
               ·
-              <a href="/">Blog</a>
-              ·
               <a href="/">Pricing</a>
-              ·
-              <a href="/">About</a>
               ·
               <a href="/">Faq</a>
               ·
               <a href="/">Contact</a>
             </p>
-            <p className="footer-company-name">Company Name &copy; 2015</p>
+            <p className="footer-company-name">Company Name &copy; 2019</p>
           </div>
           <div className="footer-center">
             <div>
               <i className="fa fa-map-marker"></i>
-              <p><span>21 Revolution Street</span> Paris, France</p>
+              <p><span>15 My Khe Street</span> Da Nang, Vietnam</p>
             </div>
             <div>
               <i className="fa fa-phone"></i>
