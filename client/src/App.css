@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
 
 body {
-    font-family: 'lato', sans-serif;
+    font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     padding: 0;
     margin: 0;
@@ -537,6 +537,7 @@ font-family: 'Open Sans';
   margin-bottom: 0.5em;
   margin-left: 0.5em;
   margin-top: 0.5em;
+  font-weight: bold;
 }
 
 .choose-service .container .cards {
@@ -651,8 +652,9 @@ font-family: 'Open Sans';
 .collection-date {
 }
 
-.collection-date .header {
-  margin-top: 0.5em;
+.collection-date h2 {
+  margin-top: 1em;
+  margin-left: 0.5em;
 }
 
 .collection-date h4 {
@@ -703,11 +705,17 @@ font-family: 'Open Sans';
 /* ************************* Return Time *************************** */
 
 .return-time {
-  margin-top: 10em; 
+  margin-top: 4em; 
 }
 
-.return-time .header {
+.return-time h2 {
+  margin-left: 0.5em;
+  font-size: 1.5em;
+}
+
+.return-time h4 {
   margin-left: 1em;
+  margin-top: 1em;
 }
 
 .return-time .description {
@@ -773,7 +781,7 @@ font-family: 'Open Sans';
 
 .collect-return {
   border: 1px solid black;
-  height: 30em;
+  height: 25em;
   width: 63em;
   float: left;
   margin-left: 6em;
@@ -807,19 +815,28 @@ font-family: 'Open Sans';
 .collect-appointment-available .appointment-time {
   border: 1px solid black;
   margin: 0.5em;
+  margin-left: 1em;
 }
 
+
 /* ************************* Return Appointments *************************** */
+
 
 .return {
   display: flex;
   justify-content: space-around;
 }
 
+
+.return-time-container h4{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .return-appointment-available {
   display: flex;
   flex-wrap: wrap;
-  width: 23em;
+  width: 25em;
   font-size: 1.2em;
   max-height: 40em;
   border: 1px solid black;
@@ -828,44 +845,99 @@ font-family: 'Open Sans';
 .return-appointment-available .return-time {
   border: 1px solid black;
   margin: 0.5em;
-  height: 80px;
-  width: 80px;
+  margin-left: 1em;
+}
+
+.return-appointment-available .return-time:hover {
+  border: 1px solid black;
+  margin: 0.5em;
+  margin-left: 1em;
+  background-color: orange;
 }
 
 /* ************************* Laundry Info *************************** */
 
 .laundry-info {
   border: 1px solid black;
-  height: 30em;
-  width: 60em;
+  min-height: 33em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
 }
+
+.laundry-info-container {
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 2em;
+}
+
+.laundry-info-container article {
+  margin-left: 1em;
+}
+
+.laundry-info-container .estimated-kg {
+  margin: 0.5em;
+}
+
+.laundry-info-container .estimated-kg span {
+  margin: 1em;
+  font-weight: bold;
+  color: blue;
+}
+
 
 /* ************************* Contact Info *************************** */
 
 .contact-info {
   border: 1px solid black;
   height: 40em;
-  width: 60em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
 }
 
+.contact-info h2{
+  margin-left: 1em;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.contact-info h4 {
+  font-weight: bold;
+}
+
+.contact-info .container {
+  width: 95%;
+}
+
 /* ************************* Pickup Location *************************** */
 
 .pickup-location {
   border: 1px solid black;
-  height: 40em;
-  width: 60em;
+  height: 35em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
+}
+
+.pickup-location h2{
+  margin-left: 1em;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.pickup-location h4 {
+  font-weight: bold;
+}
+
+.pickup-location .container {
+  width: 95%
 }
 
 /* ************************* Pickup Location *************************** */
@@ -873,11 +945,25 @@ font-family: 'Open Sans';
 .payment {
   border: 1px solid black;
   height: 30em;
-  width: 60em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
+}
+
+.payment h2{
+  margin-left: 1em;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.payment h4 {
+  font-weight: bold;
+}
+
+.payment .container {
+  width: 95%
 }
 
 /* ************************* Request Collection *************************** */
@@ -885,18 +971,41 @@ font-family: 'Open Sans';
 .request-collection {
   border: 1px solid black;
   height: 15em;
-  width: 60em;
+  width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
 }
 
-/* ************************* Orders *************************** */
-.orders{
-  margin-top: 8em;
+#request-collection-info {
+  margin-left: 2em;
+  margin-top: 1em;
 }
 
+/* ************************* Orders *************************** */
+
+.orders{
+  margin-top: 8em;
+  width: 70em;
+  text-align: center;
+}
+
+.orders table {
+  margin-left: 10em;
+}
+
+/* ************************* Order *************************** */
+
+.order{
+  margin-top: 8em;
+  width: 30em;
+  text-align: center;
+}
+
+.order table {
+  margin-left: 30em;
+}
 
 
 /* ************************* Order Confirmed *************************** */
@@ -969,4 +1078,9 @@ font-family: 'Open Sans';
 .loginBtn--google:hover,
 .loginBtn--google:focus {
   background: #E74B37;
+}
+
+.logged-in-status-text {
+  margin-top: 1em;
+  margin-right: 0.5em;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import AppNavbar from './AppNavbar';
 import { Table } from 'reactstrap';
 import axios from 'axios';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Order extends Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class Order extends Component {
 
   render() {
     return (
-      <div>
+      <div className="order">
         <AppNavbar />
         <Table bordered size="sm">
           <tbody>

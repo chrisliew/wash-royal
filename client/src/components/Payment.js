@@ -54,32 +54,34 @@ class Payment extends Component {
 
     return (
       <div className="payment">
-        <h1>How would you like to pay?</h1>
-        <p>There is nothing to pay until your laundry has been weighed and processed in our shop. You will then receive an invoice via email with a final quote.</p>
-        <FormGroup tag="fieldset">
-          <legend>Radio Buttons</legend>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton1} />{' '}
-              Credit or Debit Card
+        <h2>6. How would you like to pay?</h2>
+        <div className="container">
+          <p>There is nothing to pay until your laundry has been weighed and processed in our shop. You will then receive an invoice via email with a final quote.</p>
+          <FormGroup tag="fieldset">
+            <legend><h4>Radio Buttons</h4></legend>
+            <FormGroup check>
+              <Label check>
+                <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton1} />{' '}
+                Credit or Debit Card
               {this.state.radioButton1 && creditCardInfo}
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton2} />{' '}
-              Bank Transfer
+              </Label>
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton2} />{' '}
+                Bank Transfer
               {this.state.radioButton2 && bankTransfer}
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3} />{' '}
-              Cash on Delivery
+              </Label>
+            </FormGroup>
+            <FormGroup check>
+              <Label check>
+                <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3} />{' '}
+                Cash on Delivery
               {this.state.radioButton3 && cash}
-            </Label>
+              </Label>
+            </FormGroup>
           </FormGroup>
-        </FormGroup>
+        </div>
       </div>
     )
   }

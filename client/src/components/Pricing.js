@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppNavbar from './AppNavbar';
 import PricingCards from './PricingCards';
 import Map from './Map';
+import Footer from './Footer';
 
 class Pricing extends Component {
   render() {
@@ -16,6 +17,7 @@ class Pricing extends Component {
         </div>
         <PricingCards />
         <Map />
+        <Footer />
       </div>
     )
   }

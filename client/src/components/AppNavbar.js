@@ -38,10 +38,9 @@ class AppNavbar extends Component {
   loggedInStatusText() {
     if (this.state.loggedInStatus) {
       return (
-      <div>
-        <div>Logged In As {this.state.displayName}</div>
-        <div><Stripe /></div>
-      </div>
+        <div className="logged-in-status-text">
+          <div>Logged In As {this.state.displayName}</div>
+        </div>
       )
     }
     return (<div>Logged Out</div>)
@@ -77,14 +76,15 @@ class AppNavbar extends Component {
                 </NavLink>
               </NavItem>
             </Nav>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                {this.loggedInStatusText()}
-              </NavItem>
-            </Nav>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <div><Stripe /></div>
+                </NavItem>
+                <NavItem>
+                  {this.loggedInStatusText()}
+                </NavItem>
                 <NavItem>
                   <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
                 </NavItem>

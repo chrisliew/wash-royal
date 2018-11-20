@@ -32,8 +32,7 @@ class ReturnDate extends Component {
     return (
       <div>
         <div className="return-time">
-          <h1 className="header" >Return Time</h1>
-          <h2>Returned on {dayOfWeek}, {monthName} {dayOfMonth}</h2>
+          <h2>Select Return Date:</h2>
           {this.props.service === 'express' &&
             <div>
               <div className="buttons">
@@ -140,6 +139,7 @@ class ReturnDate extends Component {
               </div>
             </div>
           }
+          <h4>Returned on <b>{dayOfWeek}, {monthName} {dayOfMonth}</b></h4>
         </div>
       </div>
     )
@@ -165,8 +165,8 @@ class CollectionDate extends Component {
     return (
       <div>
         <div className="collection-date">
-          <h2 className="header"><b>2. Collection Date</b></h2>
-          <h4>Select Date:</h4>
+          <h2><b>2. Collection Date</b></h2>
+          <h4>Select Collection Date:</h4>
           <div className="buttons">
             <button
               className={this.props.collectedButton1 ? "button-selected" : "button"}
@@ -224,8 +224,8 @@ class ReturnTime extends Component {
     );
 
     return (
-      <div>
-        <h5>Return Time's Available:</h5>
+      <div className="return-time-container">
+        <h4><b>Return Time's Available:</b></h4>
         <div className="return-appointment-available">
           {filteredAppointmentTimes.map((appointmentTime) => (
             <div
@@ -274,7 +274,7 @@ class CollectionTime extends Component {
             <div
               key={appointmentTime.date + appointmentTime.time + appointmentTime.type} >
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
-                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }}  className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
               }
             </div>
           ))}
@@ -292,26 +292,26 @@ class BookingPage extends Component {
 
     const serviceType = () => {
       const serviceURL = this.props.location.pathname
-      if(serviceURL.includes("economy")) {
+      if (serviceURL.includes("economy")) {
         return "economy"
       }
-      else if(serviceURL.includes("standard")) {
+      else if (serviceURL.includes("standard")) {
         return "standard"
       }
-      else if(serviceURL.includes("express")) {
+      else if (serviceURL.includes("express")) {
         return "express"
       }
     }
 
     const returnDateInitial = () => {
       const serviceURL = this.props.location.pathname
-      if(serviceURL.includes("economy")) {
+      if (serviceURL.includes("economy")) {
         return getDayAfterTomorrowDate()
       }
-      else if(serviceURL.includes("standard")) {
+      else if (serviceURL.includes("standard")) {
         return getTomorrowDate()
       }
-      else if(serviceURL.includes("express")) {
+      else if (serviceURL.includes("express")) {
         return getTodayDate()
       }
     }
@@ -691,8 +691,10 @@ class BookingPage extends Component {
           <div>
             <Button onClick={this.handleOnClickSubmitOrder} color="primary" size="lg" block>Request Collection</Button>
           </div>
-          <p>By placing an order you agree to our terms of service.</p>
-          <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
+          <div id="request-collection-info">
+            <p>By placing an order you agree to our terms of service.</p>
+            <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
+          </div>
         </div>
       </div>
     )

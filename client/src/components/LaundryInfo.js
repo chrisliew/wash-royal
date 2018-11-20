@@ -19,38 +19,47 @@ class LaundryInfo extends Component {
 
     return (
       <div className="laundry-info">
-      
-        <h2>Tell Us About Your Laundry</h2>
-        <p>Approximately how heavy is your laundry?</p>
-        <p>Don't worry about it being exact, this is just for estimation of costs</p>
-        <button disabled={this.props.estimatedKG <= 1} onClick={this.props.handleOnClickSubtractKG}>-1KG</button>
-        <span>{this.props.estimatedKG}KG</span>
-        <button onClick={this.props.handleOnClickAddKG}>+1KG</button>
-        <FormGroup check>
-          <h5>Extra Services</h5>
-          <Label check>
-            <Input onClick={this.props.handleOnClickIroned} type="checkbox" />{' '}
-            I would like my laundry to be ironed.
+        <div className="laundry-info-container">
+
+          <h2><b>3. Tell Us About Your Laundry</b></h2>
+          <article>
+            <p>Approximately how heavy is your laundry?</p>
+            <p>Don't worry about it being exact, this is just for estimation of costs</p>
+            <div className="estimated-kg">
+              <button disabled={this.props.estimatedKG <= 1} onClick={this.props.handleOnClickSubtractKG}>-1KG</button>
+              <span>{this.props.estimatedKG}KG</span>
+              <button onClick={this.props.handleOnClickAddKG}>+1KG</button>
+            </div>
+            <br />
+            <FormGroup check>
+              <h4 className="extra-services-header"><b>Extra Services</b></h4>
+              <Label check>
+                <Input onClick={this.props.handleOnClickIroned} type="checkbox" />{' '}
+                I would like my laundry to be ironed.
             {this.props.ironed && ironed}
+              </Label>
+              <br />
+              <Label check>
+                <Input onClick={this.props.handleOnClickShoes} type="checkbox" />{' '}
+                I have shoes that need cleaning (sneakers, trainers, sports shoes).
           </Label>
-          <br />
-          <Label check>
-            <Input onClick={this.props.handleOnClickShoes} type="checkbox" />{' '}
-            I have shoes that need cleaning (sneakers, trainers, sports shoes).
+              {this.props.shoes && shoes}
+              <br />
+              <Label check>
+                <Input type="checkbox" />{' '}
+                I have sensitive skin, please do not use fabric softener.
           </Label>
-          {this.props.shoes && shoes}
-          <br />
-          <Label check>
-            <Input type="checkbox" />{' '}
-            I have sensitive skin, please do not use fabric softener.
-          </Label>
-        </FormGroup>
-        <div>
-          <h2>Extra Information</h2>
-          <FormGroup>
-            <Label for="exampleText">Text Area</Label>
-            <Input type="textarea" name="text" id="exampleText" />
-          </FormGroup>
+              <br />
+              <br />
+            </FormGroup>
+            <div>
+              <h4><b>Extra Information</b></h4>
+              <FormGroup>
+                <Label for="exampleText">Text Area</Label>
+                <Input type="textarea" name="text" id="exampleText" />
+              </FormGroup>
+            </div>
+          </article>
         </div>
       </div>
     )
