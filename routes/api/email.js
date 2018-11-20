@@ -13,7 +13,7 @@ module.exports = (app) => {
 
     let transporter = nodemailer.createTransport({
       service: 'gmail',
-      port: 587,
+      port: 465,
       secure: false,
       auth: {
         user: 'chriswvliew@gmail.com',
