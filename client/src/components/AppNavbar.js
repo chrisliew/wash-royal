@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Button } from 'reactstrap';
 import Login from './Login';
-import Stripe from './Stripe';
 import axios from 'axios';
 
 
@@ -79,9 +78,6 @@ class AppNavbar extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <div><Stripe /></div>
-                </NavItem>
                 <NavItem>
                   {this.loggedInStatusText()}
                 </NavItem>

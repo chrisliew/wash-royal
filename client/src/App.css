@@ -694,13 +694,13 @@ font-family: 'Open Sans';
   transform: scale(1.2);
 }
 
-.collection-date .button:focus
+/* .collection-date .button:focus
 {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
   background-color: orange;
-}
+} */
 
 /* ************************* Return Time *************************** */
 
@@ -738,12 +738,12 @@ font-family: 'Open Sans';
   font-size: 1em;
 }
 
-.return-time .selected {
+/* .return-time .selected {
   border: 1px solid black;
   border-radius: 5px;
   height: 6em;
   width: 6em;
-}
+} */
 
 .return-time .button:hover
 {
@@ -1023,6 +1023,10 @@ font-family: 'Open Sans';
   height: 20em;
   width: 40em;
   margin-top: 10em;
+  background-color: white;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
 }
 
 /* ************************* Button Link *************************** */

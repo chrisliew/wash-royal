@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Stripe from './Stripe';
 import { FormGroup, Label, Input } from 'reactstrap';
 
 class Payment extends Component {
@@ -39,6 +40,8 @@ class Payment extends Component {
     const creditCardInfo =
       <div>
         Your card will only be charged once we have collected and weighed your laundry.
+        <br />
+        <Stripe />
       </div>
 
     const bankTransfer =
@@ -58,7 +61,7 @@ class Payment extends Component {
         <div className="container">
           <p>There is nothing to pay until your laundry has been weighed and processed in our shop. You will then receive an invoice via email with a final quote.</p>
           <FormGroup tag="fieldset">
-            <legend><h4>Radio Buttons</h4></legend>
+            <legend><h4>Payment Method:</h4></legend>
             <FormGroup check>
               <Label check>
                 <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton1} />{' '}
@@ -66,13 +69,13 @@ class Payment extends Component {
               {this.state.radioButton1 && creditCardInfo}
               </Label>
             </FormGroup>
-            <FormGroup check>
+            {/* <FormGroup check>
               <Label check>
                 <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton2} />{' '}
                 Bank Transfer
               {this.state.radioButton2 && bankTransfer}
               </Label>
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup check>
               <Label check>
                 <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3} />{' '}

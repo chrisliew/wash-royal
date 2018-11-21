@@ -13,6 +13,9 @@ import appointmentTimes from '../appointmentTimes';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 
+//delete this
+import BG from './ButtonGroup';
+
 class ReturnDate extends Component {
   constructor(props) {
     super(props);
@@ -696,6 +699,7 @@ class BookingPage extends Component {
             <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
           </div>
         </div>
+        {/* <BG /> */}
       </div>
     )
   }
