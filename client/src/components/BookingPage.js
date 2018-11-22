@@ -10,11 +10,9 @@ import ContactInfo from './ContactInfo';
 import PickupLocation from './PickupLocation';
 import Payment from './Payment';
 import appointmentTimes from '../appointmentTimes';
-import { Button } from 'reactstrap';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 
-//delete this
-import BG from './ButtonGroup';
 
 class ReturnDate extends Component {
   constructor(props) {
@@ -594,7 +592,7 @@ class BookingPage extends Component {
       })
     axios.post('/api/orders', order)
       .then(res => {
-        window.location.replace("/order/confirmed/:id");
+        // window.location.replace("/order/confirmed/:id");
       })
   }
 
@@ -692,7 +690,22 @@ class BookingPage extends Component {
         <Payment />
         <div className="request-collection">
           <div>
-            <Button onClick={this.handleOnClickSubmitOrder} color="primary" size="lg" block>Request Collection</Button>
+            <button onClick={this.handleOnClickSubmitOrder}>
+              <Link to={{
+                pathname: "/order/confirmed/:id",
+                state: { 
+                  orderId: this.state.orderId,
+                  service: this.state.service,
+                  collectionDate: this.state.collectionDate,
+                  collectionTime: this.state.collectionTime,
+                  returnDate: this.state.returnDate,
+                  returnTime: this.state.returnTime
+                }
+              }}
+              >
+              Request Collection
+            </Link>
+            </button>
           </div>
           <div id="request-collection-info">
             <p>By placing an order you agree to our terms of service.</p>

@@ -9,10 +9,11 @@ class AppNavbar extends Component {
   constructor() {
     super();
     this.state = {
-      loggedInStatus: '',
+      // loggedInStatus: '',
       displayName: ''
     }
     this.loggedInStatusText = this.loggedInStatusText.bind(this);
+    this.signInWithGoogle = this.signInWithGoogle.bind(this);
   }
   componentDidMount() {
     axios.get('/api/current_user')
@@ -38,11 +39,31 @@ class AppNavbar extends Component {
     if (this.state.loggedInStatus) {
       return (
         <div className="logged-in-status-text">
-          <div>Logged In As {this.state.displayName}</div>
+          Logged In As {this.state.displayName}
+          <NavLink className="logout-link" href="/api/logout">
+              Logout
+          </NavLink>
         </div>
       )
     }
-    return (<div>Logged Out</div>)
+    else if (this.state.loggedInStatus === undefined) {
+      return
+    }
+    else if (!this.state.loggedInStatus) {
+      return (<div className="logged-out">Logged Out</div>)
+    }
+  }
+
+  signInWithGoogle() {
+    if (this.state.loggedInStatus) {
+      return
+    }
+    else if (this.state.loggedInStatus === undefined) {
+      return
+    }
+    else if (!this.state.loggedInStatus) {
+      return (<Login />)
+    }
   }
 
   render() {
@@ -51,16 +72,6 @@ class AppNavbar extends Component {
         <Navbar id="nav-bar" color="primary" dark expand="sm" className="mb-5" sticky="top">
           <Container>
             <NavbarBrand href="/">WashRoyal</NavbarBrand>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                {this.state.loggedInStatus ?
-                  <NavLink href="/api/logout">
-                    Logout
-                  </NavLink> :
-                  <Login />
-                }
-              </NavItem>
-            </Nav>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/pricing">
@@ -75,16 +86,17 @@ class AppNavbar extends Component {
                 </NavLink>
               </NavItem>
             </Nav>
-            <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   {this.loggedInStatusText()}
                 </NavItem>
-                <NavItem>
-                  <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
-                </NavItem>
               </Nav>
+              {/* <NavItem>
+                  <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+                </NavItem> */}
+              
+                  {this.signInWithGoogle()}
             </Collapse>
           </Container>
         </Navbar>

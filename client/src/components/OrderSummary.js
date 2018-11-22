@@ -42,7 +42,7 @@ class OrderSummary extends Component {
             <p>Delivery:*FREE*</p>
           </div>
           <div className="price-estimate">
-            <p> Estimated Cost: {costOfWash} ₫</p>
+            <div> Estimated Cost: {costOfWash} ₫</div>
           </div>
         </div>
       </div>

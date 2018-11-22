@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path="/orders" component={Orders} />
           <Route path="/orders/:orderId" component={Order} />
           <Route path="/order/new" component={BookingPage} />
-          <Route path="/order/confirmed/:id" component={OrderConfirmed} />
+          <Route exact path="/order/confirmed/:id" component={OrderConfirmed} />
         </div>
       </Router>
     );

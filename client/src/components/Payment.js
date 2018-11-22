@@ -44,11 +44,11 @@ class Payment extends Component {
         <Stripe />
       </div>
 
-    const bankTransfer =
-      <div>
-        Once we have received your laundry at our store, you will receive payment instructions via email.
-        Please note that we are only able to accept payments from Thai banks.
-      </div>
+    // const bankTransfer =
+    //   <div>
+    //     Once we have received your laundry at our store, you will receive payment instructions via email.
+    //     Please note that we are only able to accept payments from Thai banks.
+    //   </div>
 
     const cash =
       <div>
