@@ -764,13 +764,6 @@ font-family: 'Open Sans';
   color: white;
 }
 
-.return-time .button:focus
-{
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  background-color: orange;
-}
 
 .return-time .button:disabled
 {
@@ -820,6 +813,13 @@ font-family: 'Open Sans';
   margin-left: 1em;
 }
 
+.collect-appointment-available .appointment-time-active {
+  border: 1px solid black;
+  margin: 0.5em;
+  margin-left: 1em;
+  background-color: orange;
+}
+
 
 /* ************************* Return Appointments *************************** */
 
@@ -850,7 +850,7 @@ font-family: 'Open Sans';
   margin-left: 1em;
 }
 
-.return-appointment-available .return-time:hover {
+.return-appointment-available .return-time-active {
   border: 1px solid black;
   margin: 0.5em;
   margin-left: 1em;
@@ -990,6 +990,21 @@ font-family: 'Open Sans';
   background-color: #28a745;
   height: 2em;
   font-size: 2em;
+}
+.request-collection button:hover {
+  background-color: rgb(61, 85, 85);
+}
+
+.request-collection .link {
+  display: block;
+  height: 100%;
+  /* width: 100% */
+  text-decoration: none;
+  color: black;
+}
+
+.request-collection .link:hover {
+  color: white;
 }
 
 /* ************************* Orders *************************** */

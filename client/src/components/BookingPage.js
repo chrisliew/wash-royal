@@ -20,8 +20,8 @@ class ReturnDate extends Component {
     this.handleReturnDateClick = this.handleReturnDateClick.bind(this);
   }
 
-  handleReturnDateClick(day, month, year) {
-    this.props.onReturnDateChange(day, month, year)
+  handleReturnDateClick(day, month, year, returnButton1, returnButton2, returnButton3,    returnButton4, returnButton5) {
+    this.props.onReturnDateChange(day, month, year, returnButton1, returnButton2, returnButton3, returnButton4, returnButton5)
   }
 
   render() {
@@ -39,31 +39,31 @@ class ReturnDate extends Component {
               <div className="buttons">
                 <button
                   className={this.props.returnButton1 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(0), getMonthNumber(0), getYear(0)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(0), getMonthNumber(0), getYear(0), true) }}
                   disabled={this.props.collectedButton2 || this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(0)} {<br />} {getDayOfMonth(0)}
                 </button>
                 <button
                   className={this.props.returnButton2 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(1), getMonthNumber(1), getYear(1)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(1), getMonthNumber(1), getYear(1), false, true) }}
                   disabled={this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(1)} {<br />} {getDayOfMonth(1)}
                 </button>
                 <button
                   className={this.props.returnButton3 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2), false, false, true) }}
                   disabled={this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(2)} {<br />} {getDayOfMonth(2)}
                 </button>
                 <button
                   className={this.props.returnButton4 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3), false, false, false, true) }}
                   disabled={this.props.collectedButton5}
                 >{getToday(3)} {<br />} {getDayOfMonth(3)}
                 </button>
                 <button
                   className={this.props.returnButton5 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4), false, false, false, false, true) }}
                 >{getToday(4)} {<br />} {getDayOfMonth(4)}
                 </button>
               </div>
@@ -74,31 +74,31 @@ class ReturnDate extends Component {
               <div className="buttons">
                 <button
                   className={this.props.returnButton1 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2), true) }}
                   disabled={this.props.collectedButton2 || this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(2)} {<br />} {getDayOfMonth(2)}
                 </button>
                 <button
                   className={this.props.returnButton2 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3), false, true) }}
                   disabled={this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(3)} {<br />} {getDayOfMonth(3)}
                 </button>
                 <button
                   className={this.props.returnButton3 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4), false, false, true) }}
                   disabled={this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(4)} {<br />} {getDayOfMonth(4)}
                 </button>
                 <button
                   className={this.props.returnButton4 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(5), getMonthNumber(5), getYear(5)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(5), getMonthNumber(5), getYear(5), false, false, false, true) }}
                   disabled={this.props.collectedButton5}
                 >{getToday(5)} {<br />} {getDayOfMonth(5)}
                 </button>
                 <button
                   className={this.props.returnButton5 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(6), getMonthNumber(6), getYear(6)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(6), getMonthNumber(6), getYear(6), false, false, false, false, true) }}
                 >{getToday(6)} {<br />} {getDayOfMonth(6)}
                 </button>
               </div>
@@ -110,31 +110,31 @@ class ReturnDate extends Component {
               <div className="buttons">
                 <button
                   className={this.props.returnButton1 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(1), getMonthNumber(1), getYear(1)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(1), getMonthNumber(1), getYear(1), true) }}
                   disabled={this.props.collectedButton2 || this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(1)} {<br />} {getDayOfMonth(1)}
                 </button>
                 <button
                   className={this.props.returnButton2 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(2), getMonthNumber(2), getYear(2), false, true) }}
                   disabled={this.props.collectedButton3 || this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(2)} {<br />} {getDayOfMonth(2)}
                 </button>
                 <button
                   className={this.props.returnButton3 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(3), getMonthNumber(3), getYear(3), false, false, true) }}
                   disabled={this.props.collectedButton4 || this.props.collectedButton5}
                 >{getToday(3)} {<br />} {getDayOfMonth(3)}
                 </button>
                 <button
                   className={this.props.returnButton4 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(4), getMonthNumber(4), getYear(4), false, false, false, true) }}
                   disabled={this.props.collectedButton5}
                 >{getToday(4)} {<br />} {getDayOfMonth(4)}
                 </button>
                 <button
                   className={this.props.returnButton5 ? "button-selected" : "button"}
-                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(5), getMonthNumber(5), getYear(5)) }}
+                  onClick={() => { this.handleReturnDateClick(getDayOfMonth(5), getMonthNumber(5), getYear(5), false, false, false, false, true) }}
                 >{getToday(5)} {<br />} {getDayOfMonth(5)}
                 </button>
               </div>
@@ -205,11 +205,19 @@ class CollectionDate extends Component {
 class ReturnTime extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      index: 0
+    }
     this.handleReturnTimeClick = this.handleReturnTimeClick.bind(this);
   }
 
-  handleReturnTimeClick(returnTime) {
-    this.props.onReturnTimeClick(returnTime)
+  handleReturnTimeClick(returnTime, index) {
+    console.log("INDEX", index)
+    
+    this.props.onReturnTimeClick(returnTime);
+    this.setState({
+      index: index
+    })
   }
 
   render() {
@@ -223,17 +231,18 @@ class ReturnTime extends Component {
     const filteredAppointmentTimes = appointmentTimes.filter(appointmentTime =>
       appointmentTime.date === getTodayDate() || appointmentTime.date === addOneDay || appointmentTime.date === addTwoDays || appointmentTime.date === addThreeDays || appointmentTime.date === addFourDays || appointmentTime.date === addFiveDays || appointmentTime.date === addSixDays
     );
+    console.log("FAT", filteredAppointmentTimes)
 
     return (
       <div className="return-time-container">
         <h4><b>Return Time's Available:</b></h4>
         <div className="return-appointment-available">
-          {filteredAppointmentTimes.map((appointmentTime) => (
+          {filteredAppointmentTimes.map((appointmentTime, index) => (
             <div
-              key={appointmentTime.date + appointmentTime.time + appointmentTime.type}>
+              key={index}>
               {(appointmentTime.type === "return" && appointmentTime.date === this.props.returnDate) &&
                 <button
-                  onClick={() => { this.handleReturnTimeClick(appointmentTime.time) }} className="return-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}
+                  onClick={() => { this.handleReturnTimeClick(appointmentTime.time, index) }} className={this.state.index === index ? "return-time-active" : "return-time"}>{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}
                 </button>
               }
             </div>
@@ -248,10 +257,16 @@ class CollectionTime extends Component {
   constructor(props) {
     super(props);
     this.handleCollectionTimeClick = this.handleCollectionTimeClick.bind(this);
+    this.state = {
+      index: ''
+    }
   }
 
-  handleCollectionTimeClick(collectionTime) {
+  handleCollectionTimeClick(collectionTime, index) {
     this.props.onCollectionTimeClick(collectionTime)
+    this.setState({
+      index: index
+    })
   }
 
   render() {
@@ -270,12 +285,12 @@ class CollectionTime extends Component {
       <div className="collection-time-container">
         <h4><b>Collection Time's Available:</b></h4>
         <div className="collect-appointment-available">
-          {filteredAppointmentTimes.map((appointmentTime) => (
+          {filteredAppointmentTimes.map((appointmentTime, index) => (
             // Click button then clear state of other ones, then setState active of button
             <div
-              key={appointmentTime.date + appointmentTime.time + appointmentTime.type} >
+              key={index} >
               {(appointmentTime.type === "collection" && appointmentTime.date === this.props.collectionDate) &&
-                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time) }} className="appointment-time">{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
+                <button onClick={() => { this.handleCollectionTimeClick(appointmentTime.time, index) }} className={this.state.index === index ? "appointment-time-active" : "appointment-time"}>{appointmentTime.time} - {moment.utc(appointmentTime.time, 'HH:mm').add(1, 'hour').format('HH:mm')}</button>
               }
             </div>
           ))}
@@ -284,8 +299,6 @@ class CollectionTime extends Component {
     )
   }
 }
-
-
 
 class BookingPage extends Component {
   constructor(props) {
@@ -614,7 +627,8 @@ class BookingPage extends Component {
           shoes={this.state.shoes}
           softener={this.state.softener}
           numShoes={this.state.numShoes}
-
+          collectionTime={this.state.collectionTime}
+          returnTime={this.state.returnTime}
         />
         <div className="collect-return">
           <div className="collect">
@@ -691,9 +705,9 @@ class BookingPage extends Component {
         <div className="request-collection">
           <div>
             <button onClick={this.handleOnClickSubmitOrder}>
-              <Link to={{
+              <Link className="link" to={{
                 pathname: "/order/confirmed/:id",
-                state: { 
+                state: {
                   orderId: this.state.orderId,
                   service: this.state.service,
                   collectionDate: this.state.collectionDate,
@@ -703,7 +717,7 @@ class BookingPage extends Component {
                 }
               }}
               >
-              Request Collection
+                Request Collection
             </Link>
             </button>
           </div>
@@ -712,7 +726,6 @@ class BookingPage extends Component {
             <p>* View a map of our free delivery area. Please do not hesitate to contact us for a quote if you are outside of this area.</p>
           </div>
         </div>
-        {/* <BG /> */}
       </div>
     )
   }

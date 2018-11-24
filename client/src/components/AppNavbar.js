@@ -41,7 +41,7 @@ class AppNavbar extends Component {
         <div className="logged-in-status-text">
           Logged In As {this.state.displayName}
           <NavLink className="logout-link" href="/api/logout">
-              Logout
+            Logout
           </NavLink>
         </div>
       )
@@ -87,16 +87,19 @@ class AppNavbar extends Component {
               </NavItem>
             </Nav>
             <Collapse isOpen={this.state.isOpen} navbar>
+
               <Nav className="ml-auto" navbar>
+             
                 <NavItem>
                   {this.loggedInStatusText()}
                 </NavItem>
+           
+
+              {this.signInWithGoogle()}
+              <NavItem>
+                <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+              </NavItem>
               </Nav>
-              {/* <NavItem>
-                  <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
-                </NavItem> */}
-              
-                  {this.signInWithGoogle()}
             </Collapse>
           </Container>
         </Navbar>
