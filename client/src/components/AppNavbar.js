@@ -97,7 +97,7 @@ class AppNavbar extends Component {
 
               {this.signInWithGoogle()}
               <NavItem>
-                <NavLink href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
+                <NavLink className="book-collection-button" href="/order/new/standard"><Button color="success" size="md">Book A Collection</Button>{' '}</NavLink>
               </NavItem>
               </Nav>
             </Collapse>

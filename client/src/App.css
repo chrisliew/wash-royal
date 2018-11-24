@@ -22,6 +22,10 @@ body {
   z-index: 1;
 }
 
+#nav-bar .book-collection-button {
+  margin-top: 0.5em;
+} 
+
 /* ************************* Hero Image *************************** */
 
 #hero-image {
