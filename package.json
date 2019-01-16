@@ -5,7 +5,7 @@
   "main": "server.js",
   "engines": {
     "node": "8.9.4",
-    "npm": "6.1.0"
+    "npm": "6.4.1"
   },
   "scripts": {
     "client-install": "npm install --prefix client",
