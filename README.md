@@ -6,7 +6,7 @@ Wash Royal automates laundry pickup and delivery in the city of Da Nang, Vietnam
 
 # Screenshots
 
-!["Main page"](https://github.com/chrisliew/wash-royal/tree/master/client/public/pictures/wash-royal.png)
+![Main Page](/client/public/pictures/wash-royal.png?raw=true 'Landing Page')
 
 ## Dependencies
 
