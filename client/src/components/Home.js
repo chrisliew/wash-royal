@@ -6,21 +6,23 @@ import Faq from './Faq';
 import Testimonials from './Testimonials';
 import About from './About';
 import Footer from './Footer';
+import BookingButton from './BookingButton';
 
 class Home extends Component {
-
   render() {
-    return(
-      <div className="Home">
+    return (
+      <div className='Home'>
         <AppNavbar />
         <HeroImage />
         <HowItWorks />
+        <BookingButton />
         <Faq />
+        <BookingButton />
         <Testimonials />
         <About />
         <Footer />
       </div>
-    )
+    );
   }
 }
 

@@ -60,59 +60,50 @@ body {
 /* ************************* Hero Image *************************** */
 
 #hero-image {
-  height: 35em;
+  /* height: 35em; */
   text-align: center;
   text-align: bottom;
   /* background-image: url("/pictures/hero-image.jpg"); */
   color: black;
   background:
     /* top, transparent black, faked with gradient */ linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
     ),
     /* bottom, image */ url('/pictures/hero-image.jpg');
   color: white;
 }
 
 #hero-image .container {
-  margin-top: 15em;
+  margin-top: 10em;
 }
 
 /* ************************* How It Works *************************** */
 
 .how-it-works {
   text-align: center;
-  height: 50em;
-}
-
-.how-it-works:after {
-  content: ''; /* This is necessary for the pseudo element to work. */
-  display: block; /* This will put the pseudo element on its own line. */
-  margin: 0 auto; /* This will center the border. */
-  width: 80%; /* Change this to whatever width you want. */
-  padding-top: 8em; /* This creates some space between the element and the border. */
-  border-bottom: 1px solid darkgrey; /* This creates the border. Replace black with whatever color you want. */
+  /* height: 50em; */
 }
 
 .how-it-works h1 {
-  margin-bottom: 2em;
   margin-top: 2em;
 }
 
 .how-it-works .description {
   display: flex;
   justify-content: center;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 
 .how-it-works .card {
   /* border: 5px solid green; */
   border: none;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 3em;
   align-items: center;
   width: 18em;
-  height: 28em;
+  /* height: 28em; */
   background: none;
 }
 
@@ -128,14 +119,19 @@ body {
 .how-it-works .long-info {
   margin-top: 1em;
   font-size: 1.2em;
-  /* width: 17em; */
-  /* text-align: left; */
 }
 
 .how-it-works button {
   margin-top: 2em;
-  width: 25em;
+  width: 50%;
   height: 3em;
+}
+
+.booking-button {
+  display: flex;
+  justify-content: center;
+  /* width: 400px; */
+  margin-top: 30px;
 }
 
 /* ************************* Pricing *************************** */
@@ -146,14 +142,14 @@ body {
   height: 12em;
 }
 
-.pricing-intro:after {
+/* .pricing-intro:after {
   content: '';
   display: block;
   margin: 0 auto;
   width: 80%;
   padding-top: 1em;
   border-bottom: 1px solid darkgrey;
-}
+} */
 
 .pricing .pricing-cards {
   display: flex;
@@ -221,16 +217,20 @@ body {
   margin: 0.4em;
 }
 
+.pricing .free-zone-map {
+  max-width: 100%;
+}
+
 /* ************************* FAQ *************************** */
 
-.faq:after {
+/* .faq:after {
   content: '';
   display: block;
   margin: 0 auto;
   width: 80%;
   padding-top: 8em;
   border-bottom: 1px solid darkgrey;
-}
+} */
 
 .faq h1 {
   text-align: center;
@@ -261,6 +261,7 @@ body {
   margin-top: 5em;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .testimonials:after {
@@ -270,6 +271,10 @@ body {
   width: 80%;
   padding-top: 8em;
   border-bottom: 1px solid darkgrey;
+}
+
+.testimonials .styles {
+  width: 70%;
 }
 
 .media * {
@@ -304,7 +309,7 @@ body {
 }
 .bubble {
   position: relative;
-  width: 560px;
+  /* width: 560px; */
   padding: 20px;
   background: #ffffff;
   -webkit-border-radius: 3px;
@@ -316,7 +321,6 @@ body {
 }
 
 .bubble.animated.bounceIn {
-  width: 70em;
   font-size: 1.2em;
 }
 
@@ -1017,7 +1021,7 @@ body {
 
 .orders {
   margin-top: 8em;
-  width: 70em;
+  /* width: 70em; */
   text-align: center;
 }
 
