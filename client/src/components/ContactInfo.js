@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { FormGroup, Label, Input, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import {
+  FormGroup,
+  Label,
+  Input,
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 
 class ContactInfo extends Component {
   constructor(props) {
@@ -20,43 +28,43 @@ class ContactInfo extends Component {
   }
 
   handleOnChangeClientName(event) {
-    this.props.handleOnChangeClientName(event.target.value)
+    this.props.handleOnChangeClientName(event.target.value);
   }
 
   handleOnChangeEmail(event) {
-    this.props.handleOnChangeEmail(event.target.value)
+    this.props.handleOnChangeEmail(event.target.value);
   }
 
   handleOnChangePhoneNumber(event) {
-    this.props.handleOnChangePhoneNumber(event.target.value)
+    this.props.handleOnChangePhoneNumber(event.target.value);
   }
 
   render() {
     return (
-      <div className="contact-info">
+      <div className='contact-info'>
         <h2>4. Your Contact Info </h2>
-        <div className="container">
-          <FormGroup >
-            <Label for="name">Name</Label>
+        <div className='container'>
+          <FormGroup>
+            <Label for='name'>Name</Label>
             <Input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your name here"
+              type='text'
+              name='name'
+              id='name'
+              placeholder='Your name here'
               onChange={this.handleOnChangeClientName}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="email">Email</Label>
+            <Label for='email'>Email</Label>
             <Input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your email here"
+              type='email'
+              name='email'
+              id='email'
+              placeholder='Your email here'
               onChange={this.handleOnChangeEmail}
             />
           </FormGroup>
-          <FormGroup check>
+          {/* <FormGroup check>
             <h4>Receive updates via Facebook Messenger</h4>
             <p>We will send important notifications to you instantly via Facebook Messenger, for example when our drivers arrive for collection or delivery.</p>
             <Label check>
@@ -89,10 +97,10 @@ class ContactInfo extends Component {
               placeholder="Your phone here"
               onChange={this.handleOnChangePhoneNumber}
             />
-          </FormGroup>
+          </FormGroup> */}
         </div>
       </div>
-    )
+    );
   }
 }
 

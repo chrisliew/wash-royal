@@ -41,7 +41,6 @@ class Orders extends Component {
             <tr>
               <th>Reference</th>
               <th>OrderId</th>
-              <th>Latest Status</th>
               <th>Service</th>
               <th>Collection Date</th>
               <th>Collection Time</th>
@@ -61,7 +60,6 @@ class Orders extends Component {
                   </Link>
                 </td>
                 <td>{order.orderId}</td>
-                <td>{order.status}</td>
                 <td>{order.service}</td>
                 <td>{order.collectionDate}</td>
                 <td>{order.collectionTime}</td>

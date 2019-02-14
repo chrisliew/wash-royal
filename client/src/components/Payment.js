@@ -8,41 +8,43 @@ class Payment extends Component {
     this.state = {
       radioButton1: false,
       radioButton2: false,
-      radioButton3: false,
-    }
+      radioButton3: false
+    };
   }
 
   handleOnClickRadioButton1 = () => {
     this.setState({
       radioButton1: true,
       radioButton2: false,
-      radioButton3: false,
-    })
-  }
+      radioButton3: false
+    });
+  };
 
   handleOnClickRadioButton2 = () => {
     this.setState({
       radioButton1: false,
       radioButton2: true,
-      radioButton3: false,
-    })
-  }
+      radioButton3: false
+    });
+  };
 
   handleOnClickRadioButton3 = () => {
     this.setState({
       radioButton1: false,
       radioButton2: false,
-      radioButton3: true,
-    })
-  }
+      radioButton3: true
+    });
+  };
 
   render() {
-    const creditCardInfo =
+    const creditCardInfo = (
       <div>
-        Your card will only be charged once we have collected and weighed your laundry.
+        Your card will only be charged once we have collected and weighed your
+        laundry.
         <br />
         <Stripe />
       </div>
+    );
 
     // const bankTransfer =
     //   <div>
@@ -50,23 +52,35 @@ class Payment extends Component {
     //     Please note that we are only able to accept payments from Thai banks.
     //   </div>
 
-    const cash =
+    const cash = (
       <div>
-        If you are unable to be around for delivery, we highly recommend paying by card or bank transfer.
+        If you are unable to be around for delivery, we highly recommend paying
+        by credit card.
       </div>
+    );
 
     return (
-      <div className="payment">
+      <div className='payment'>
         <h2>6. How would you like to pay?</h2>
-        <div className="container">
-          <p>There is nothing to pay until your laundry has been weighed and processed in our shop. You will then receive an invoice via email with a final quote.</p>
-          <FormGroup tag="fieldset">
-            <legend><h4>Payment Method:</h4></legend>
+        <div className='container'>
+          <p>
+            There is nothing to pay until your laundry has been weighed and
+            processed in our shop. You will then receive an invoice via email
+            with a final quote.
+          </p>
+          <FormGroup tag='fieldset'>
+            <legend>
+              <h4>Payment Method:</h4>
+            </legend>
             <FormGroup check>
               <Label check>
-                <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton1} />{' '}
+                <Input
+                  type='radio'
+                  name='radio1'
+                  onClick={this.handleOnClickRadioButton1}
+                />{' '}
                 Credit or Debit Card
-              {this.state.radioButton1 && creditCardInfo}
+                {this.state.radioButton1 && creditCardInfo}
               </Label>
             </FormGroup>
             {/* <FormGroup check>
@@ -78,17 +92,20 @@ class Payment extends Component {
             </FormGroup> */}
             <FormGroup check>
               <Label check>
-                <Input type="radio" name="radio1" onClick={this.handleOnClickRadioButton3} />{' '}
+                <Input
+                  type='radio'
+                  name='radio1'
+                  onClick={this.handleOnClickRadioButton3}
+                />{' '}
                 Cash on Delivery
-              {this.state.radioButton3 && cash}
+                {this.state.radioButton3 && cash}
               </Label>
             </FormGroup>
           </FormGroup>
         </div>
       </div>
-    )
+    );
   }
 }
 
 export default Payment;
-

@@ -177,6 +177,7 @@ body {
   -moz-box-shadow: inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow: inset 0 0 10px #000000;
+  border-radius: 10px;
 }
 
 .pricing .pricing-cards .header {
@@ -188,6 +189,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px 10px 0 0;
 }
 
 .pricing .pricing-cards .price {
@@ -591,6 +593,7 @@ body {
   height: 100%;
   width: 17em;
   transition: all 0.2s ease-in-out;
+  border-radius: 10px;
 }
 
 .choose-service .container .cards .card-selected {
@@ -600,15 +603,19 @@ body {
   filter: brightness(50%);
   background-color: lightblue;
   transform: scale(1.03);
+  border-radius: 10px;
 }
 
 .choose-service .container .card header {
-  height: 7em;
+  height: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2em;
   border-bottom: 1px solid black;
+  background: #007bff;
+  border-radius: 5px 5px 0 0;
+  color: white;
 }
 
 .choose-service .container .card-selected header {
@@ -620,6 +627,9 @@ body {
   font-size: 2em;
   padding-top: 1em;
   padding-bottom: 1em;
+  background: #007bff;
+  border-radius: 5px 5px 0 0;
+  color: white;
 }
 
 .choose-service .container .cards .card:hover {
@@ -653,6 +663,7 @@ body {
 }
 
 .order-summary .fix-this {
+  border-radius: 10px;
   position: fixed;
   margin-top: 5em;
   width: 18.5em;
@@ -662,11 +673,13 @@ body {
 }
 
 .order-summary .delivery-details {
+  background: #007bff;
   height: 7em;
-  font-size: 1.1em;
   padding-left: 1em;
   padding-top: 0.5em;
   border-bottom: 1px solid black;
+  border-radius: 10px 10px 0 0;
+  color: white;
 }
 
 .order-summary .delivery-points {
@@ -682,8 +695,10 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  background-color: darkgrey;
-  color: blue;
+  background-color: #007bff;
+  height: 2em;
+  border-radius: 0 0 10px 10px;
+  color: white;
 }
 
 /* ************************* Collection date *************************** */
@@ -711,7 +726,7 @@ body {
   border-radius: 5px;
   height: 5em;
   width: 5em;
-  background-color: rgba(4, 70, 170, 0.94);
+  background-color: #007bff;
   color: white;
   font-size: 1em;
 }
@@ -771,7 +786,7 @@ body {
   border-radius: 5px;
   height: 5em;
   width: 5em;
-  background-color: rgba(4, 70, 170, 0.94);
+  background-color: #007bff;
   color: white;
   font-size: 1em;
 }
@@ -830,6 +845,8 @@ body {
   font-size: 1.2em;
   max-height: 40em;
   border: 1px solid black;
+  border-radius: 10px;
+  background: lightgrey;
 }
 
 .collect-appointment-available .appointment-time {
@@ -864,6 +881,8 @@ body {
   font-size: 1.2em;
   max-height: 40em;
   border: 1px solid black;
+  border-radius: 10px;
+  background: lightgrey;
 }
 
 .return-appointment-available .return-time {
@@ -914,8 +933,8 @@ body {
 /* ************************* Contact Info *************************** */
 
 .contact-info {
+  padding-bottom: 2em;
   border: 1px solid black;
-  height: 40em;
   width: 63em;
   float: left;
   margin-left: 6em;
@@ -967,12 +986,12 @@ body {
 
 .payment {
   border: 1px solid black;
-  height: 30em;
   width: 63em;
   float: left;
   margin-left: 6em;
   background-color: white;
   margin-top: 3em;
+  padding-bottom: 2em;
 }
 
 .payment h2 {
@@ -1022,6 +1041,9 @@ body {
   /* width: 100% */
   text-decoration: none;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .request-collection .link:hover {
@@ -1076,6 +1098,8 @@ body {
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
+  border-radius: 10px;
+  padding-top: 1em;
 }
 
 /* ************************* Button Link *************************** */
