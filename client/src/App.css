@@ -185,6 +185,9 @@ body {
   width: 100%;
   background-color: #007bff;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pricing .pricing-cards .price {
@@ -352,6 +355,14 @@ body {
 /* ************************* Map *************************** */
 .map {
   text-align: center;
+}
+
+.map h1 {
+  margin-top: 1em;
+}
+
+.map p {
+  padding: 0 3em 0 3em;
 }
 
 /* ************************* About *************************** */
@@ -1021,12 +1032,17 @@ body {
 
 .orders {
   margin-top: 8em;
-  /* width: 70em; */
   text-align: center;
 }
 
 .orders table {
-  margin-left: 10em;
+  margin: auto;
+  width: auto;
+  border: 2px solid black;
+}
+
+.orders thead {
+  border-bottom: 3px solid black;
 }
 
 /* ************************* Order *************************** */

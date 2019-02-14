@@ -9,33 +9,33 @@ class Orders extends Component {
     orders: [],
     order: [],
     googleId: ''
-  }
+  };
 
   componentDidMount() {
-    axios.get('/api/orders/')
-      .then(res => {
-        const orders = res.data;
-        this.setState({ orders: orders })
-      })
-    axios.get('/api/current_user')
-      .then(res => {
-        this.setState({
-          googleId: res.data.googleId
-        })
-      })
+    axios.get('/api/orders/').then(res => {
+      const orders = res.data;
+      this.setState({ orders: orders });
+    });
+    axios.get('/api/current_user').then(res => {
+      this.setState({
+        googleId: res.data.googleId
+      });
+    });
   }
 
   handleClickLink() {
-    axios.get('/api/orders/' + this.props.match.params.orderId)
+    axios.get('/api/orders/' + this.props.match.params.orderId);
   }
 
   render() {
-    const ordersFilterGoogleId = this.state.orders.filter(order => 
-      this.state.googleId === order.googleId
-    )
+    const ordersFilterGoogleId = this.state.orders.filter(
+      order => this.state.googleId === order.googleId
+    );
     return (
-      <div className="orders">
+      <div className='orders'>
         <AppNavbar />
+        <h1>Your Orders</h1>
+        <br />
         <Table striped>
           <thead>
             <tr>
@@ -50,12 +50,14 @@ class Orders extends Component {
             </tr>
           </thead>
           <tbody>
-            {ordersFilterGoogleId.map(order =>
+            {ordersFilterGoogleId.map(order => (
               <tr key={order._id}>
                 <td>
                   <Link
                     onClick={this.handleClickLink}
-                    to={`/orders/${order._id}`}>Details
+                    to={`/orders/${order._id}`}
+                  >
+                    Details
                   </Link>
                 </td>
                 <td>{order.orderId}</td>
@@ -66,11 +68,11 @@ class Orders extends Component {
                 <td>{order.returnDate}</td>
                 <td>{order.returnTime}</td>
               </tr>
-            )}
+            ))}
           </tbody>
         </Table>
       </div>
-    )
+    );
   }
 }
 

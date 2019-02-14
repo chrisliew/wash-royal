@@ -6,12 +6,12 @@ class Footer extends Component {
       <div>
         <footer className='footer-distributed'>
           <div className='footer-left'>
-            <h3>WashDrop</h3>
+            <h3>Wash Royal</h3>
             {/* <p className='footer-links'>
               <a href='/'>Home</a>·<a href='/'>Pricing</a>·<a href='/'>Faq</a>·
               <a href='/'>Contact</a>
             </p> */}
-            <p className='footer-company-name'>Company Name &copy; 2019</p>
+            <p className='footer-company-name'>Wash Royal &copy; 2019</p>
           </div>
           <div className='footer-center'>
             <div>

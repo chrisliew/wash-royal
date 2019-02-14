@@ -55,7 +55,7 @@ class AppNavbar extends Component {
     } else if (this.state.loggedInStatus === undefined) {
       return;
     } else if (!this.state.loggedInStatus) {
-      return <div className='logged-out'>Logged Out</div>;
+      return <div className='logged-out' />;
     }
   }
 
@@ -81,7 +81,7 @@ class AppNavbar extends Component {
           sticky='top'
         >
           <Container>
-            <NavbarBrand href='/'>WashRoyal</NavbarBrand>
+            <NavbarBrand href='/'>Wash Royal</NavbarBrand>
             <Nav className='ml-auto' navbar>
               <NavItem>
                 <NavLink href='/pricing'>Pricing</NavLink>
