@@ -13,9 +13,7 @@ APIs: Stripe, Google Oauth.
 
 # Screenshots
 
-![Main Page](/client/public/pictures/wash-royal.png?raw=true 'Landing Page')
-![Gif](washroyal-gif.mp4)
-![Gif2](washroyal-gif.gif)
+![Gif](/client/public/pictures/washroyal-demo.gif?raw=true 'Demo Gif')
 
 ## Dependencies
 
