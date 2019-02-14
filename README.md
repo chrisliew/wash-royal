@@ -14,20 +14,22 @@ APIs: Stripe, Google Oauth.
 # Screenshots
 
 ![Main Page](/client/public/pictures/wash-royal.png?raw=true 'Landing Page')
+![Gif](washroyal-gif.mp4)
+![Gif2](washroyal-gif.gif)
 
 ## Dependencies
 
-@sendgrid/mail: ^6.3.1,
-bcrypt: ^3.0.2,
-body-parser: ^1.18.3,
-concurrently: ^4.0.1,
-cookie-session: ^2.0.0-beta.3,
-express: ^4.16.3,
-moment: ^2.22.2,
-mongoose: ^5.3.0,
-morgan: ^1.9.1,
-nodemailer: ^4.6.8,
-passport: ^0.4.0,
-passport-google-oauth20: ^1.0.0,
-react-render-html: ^0.6.0,
-react-router-dom: ^4.3.1
+@sendgrid/mail: ^6.3.1,<br/>
+bcrypt: ^3.0.2,<br/>
+body-parser: ^1.18.3,<br/>
+concurrently: ^4.0.1,<br/>
+cookie-session: ^2.0.0-beta.3,<br/>
+express: ^4.16.3,<br/>
+moment: ^2.22.2,<br/>
+mongoose: ^5.3.0,<br/>
+morgan: ^1.9.1,<br/>
+nodemailer: ^4.6.8,<br/>
+passport: ^0.4.0,<br/>
+passport-google-oauth20: ^1.0.0,<br/>
+react-render-html: ^0.6.0,<br/>
+react-router-dom: ^4.3.1<br/>
