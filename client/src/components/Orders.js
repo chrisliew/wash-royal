@@ -3,6 +3,7 @@ import { Table } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AppNavbar from './AppNavbar';
+import { Jumbotron, Container, Button, NavLink } from 'reactstrap';
 
 class Orders extends Component {
   state = {
@@ -69,6 +70,11 @@ class Orders extends Component {
             ))}
           </tbody>
         </Table>
+        <NavLink href='/order/new/standard'>
+          <Button color='success' size='lg'>
+            Book A Collection
+          </Button>{' '}
+        </NavLink>
       </div>
     );
   }
