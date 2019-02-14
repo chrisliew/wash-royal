@@ -14,6 +14,7 @@ APIs: Stripe, Google Oauth.
 # Screenshots
 
 ![Gif](/client/public/pictures/washroyal-demo.gif)
+![Gif](washroyal-demo.gif)
 
 ## Dependencies
 
