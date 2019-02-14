@@ -2,7 +2,7 @@
 
 ## :round_pushpin: Summary :round_pushpin:
 
-Wash Royal automates laundry pickup and delivery in the city of Da Nang, Vietnam. You can login using Google Oauth and arrange a time for laundry pickup and delivery, and send a payment through the Stripe API. Hosted on https://washroyal.herokuapp.com/
+Wash Royal automates laundry pickup and delivery in the city of Da Nang, Vietnam. You can login using Google Oauth and arrange a time for laundry pickup and delivery, and send a payment through the Stripe API. Hosted on https://www.washroyal.com/
 
 ## Tech Stack
 
