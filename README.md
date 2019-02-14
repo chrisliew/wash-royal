@@ -7,7 +7,9 @@ Wash Royal automates laundry pickup and delivery in the city of Da Nang, Vietnam
 ## Tech Stack
 
 Front End: Javascript, React.js <br/>
-Back End: Mongo DB, Express, Node
+Back End: Mongo DB, Express, Node <br />
+Libraries/Frameworks: Passport.js, Nodemailer, Moment.js, Bootstrap <br />
+APIs: Stripe, Google Oauth.
 
 # Screenshots
 
